@@ -1,0 +1,1150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Sarang Bathalapalli — Data Scientist</title>
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root{--k:#080808;--w:#f2ede4;--r:#e8401c;--g:#f0b429;--gr:#1db954;--b:#2563eb;--p:#7c3aed;--o:#e07b39;--m:#141414;--mu:#555;--bd:#222}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{background:var(--k);color:var(--w);font-family:'DM Sans',sans-serif;font-weight:300;line-height:1.6;overflow-x:hidden}
+body::before{content:'';position:fixed;inset:0;background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.03'/%3E%3C/svg%3E");pointer-events:none;z-index:9999;opacity:.4}
+
+/* overlay system */
+#mv{display:block}
+.ov{display:none;position:fixed;inset:0;z-index:500;overflow-y:auto;background:var(--k)}
+.ov.on{display:block}
+.cbtn{position:fixed;top:22px;right:28px;z-index:600;background:var(--m);border:1px solid var(--bd);color:var(--w);font-family:'DM Mono',monospace;font-size:11px;letter-spacing:.15em;text-transform:uppercase;padding:10px 20px;cursor:pointer;transition:all .2s}
+.cbtn:hover{background:var(--r);border-color:var(--r)}
+
+/* hero */
+.hero{min-height:100vh;display:grid;grid-template-columns:1fr 1fr;border-bottom:1px solid var(--bd)}
+.hl{padding:80px 60px;display:flex;flex-direction:column;justify-content:space-between;border-right:1px solid var(--bd)}
+.htag{font-family:'DM Mono',monospace;font-size:11px;letter-spacing:.2em;text-transform:uppercase;color:var(--r);margin-bottom:28px}
+.hname{font-family:'Bebas Neue',sans-serif;font-size:clamp(68px,8.5vw,126px);line-height:.88;letter-spacing:.02em}
+.hname span{color:var(--r);display:block}
+.hbio{margin-top:36px;font-size:15px;color:#a09890;line-height:1.9;max-width:460px}
+.hbio strong{color:var(--w);font-weight:500}
+.hstats{display:flex;gap:40px;margin-top:44px;padding-top:28px;border-top:1px solid var(--bd)}
+.sn{font-family:'Bebas Neue',sans-serif;font-size:44px;color:var(--g);line-height:1}
+.sl{font-size:10px;letter-spacing:.14em;text-transform:uppercase;color:var(--mu);margin-top:4px}
+.ctar{display:flex;gap:14px;margin-top:44px;flex-wrap:wrap}
+.btn{display:inline-flex;align-items:center;gap:8px;padding:13px 26px;font-family:'DM Mono',monospace;font-size:11px;letter-spacing:.1em;text-transform:uppercase;text-decoration:none;border:none;cursor:pointer;transition:all .2s}
+.br{background:var(--r);color:var(--k)}.br:hover{background:var(--g)}
+.bg{background:transparent;color:var(--w);border:1px solid var(--bd)}.bg:hover{background:var(--w);color:var(--k);border-color:var(--w)}
+.hr2{padding:80px 60px;display:flex;flex-direction:column;justify-content:center}
+.sklbl{font-family:'DM Mono',monospace;font-size:10px;letter-spacing:.2em;text-transform:uppercase;color:var(--mu);margin-bottom:28px}
+.skgrid{display:grid;grid-template-columns:1fr 1fr;gap:2px}
+.skc{padding:15px 18px;background:var(--m);font-size:12px;color:#b0a898;transition:background .2s,color .2s;cursor:default}
+.skc:hover{background:var(--r);color:var(--k)}
+.skcl{font-family:'DM Mono',monospace;font-size:9px;letter-spacing:.14em;text-transform:uppercase;color:var(--mu);display:block;margin-bottom:3px}
+.skc:hover .skcl{color:rgba(0,0,0,.6)}
+
+/* section chrome */
+section{border-bottom:1px solid var(--bd)}
+.sh{display:grid;grid-template-columns:180px 1fr;border-bottom:1px solid var(--bd)}
+.snum{padding:20px 28px;font-family:'DM Mono',monospace;font-size:10px;color:var(--mu);letter-spacing:.15em;border-right:1px solid var(--bd);display:flex;align-items:center}
+.stit{padding:20px 44px;font-family:'Bebas Neue',sans-serif;font-size:32px;letter-spacing:.05em;display:flex;align-items:center}
+
+/* experience */
+.eg{display:grid;grid-template-columns:180px 1fr}
+.es{padding:36px 28px;border-right:1px solid var(--bd)}
+.eco{font-family:'DM Mono',monospace;font-size:10px;letter-spacing:.15em;text-transform:uppercase;color:var(--r);margin-bottom:8px}
+.er{font-size:14px;font-weight:500;color:var(--w);line-height:1.3;margin-bottom:6px}
+.ep{font-size:11px;color:var(--mu)}
+.eb{padding:36px 44px}
+.ed{font-size:14px;color:#a09890;line-height:1.9;max-width:660px;margin-bottom:18px}
+.ed strong{color:var(--w);font-weight:500}
+.pills{display:flex;flex-wrap:wrap;gap:7px;margin-top:14px}
+.pill{padding:3px 11px;background:var(--m);font-family:'DM Mono',monospace;font-size:9px;letter-spacing:.1em;text-transform:uppercase;color:var(--mu);border:1px solid var(--bd)}
+.ediv{border:none;border-top:1px solid var(--bd)}
+
+/* projects grid */
+.pg{display:grid;grid-template-columns:repeat(3,1fr)}
+.pc{padding:36px 32px;border-right:1px solid var(--bd);border-bottom:1px solid var(--bd);position:relative;transition:background .25s;cursor:pointer;overflow:hidden;display:flex;flex-direction:column}
+.pc:nth-child(3n){border-right:none}
+.pc::after{content:'';position:absolute;top:0;left:0;right:0;height:3px;transform:scaleX(0);transform-origin:left;transition:transform .3s}
+.pc:hover::after{transform:scaleX(1)}
+.pc:hover{background:var(--m)}
+.pt{font-family:'DM Mono',monospace;font-size:9px;letter-spacing:.2em;text-transform:uppercase;margin-bottom:14px}
+.pn{font-family:'Bebas Neue',sans-serif;font-size:28px;letter-spacing:.03em;color:var(--w);line-height:1.05;margin-bottom:12px}
+.ph{font-size:13px;font-weight:500;line-height:1.4;margin-bottom:10px}
+.pd{font-size:12px;color:#807870;line-height:1.8;margin-bottom:16px;flex:1}
+.plink{font-family:'DM Mono',monospace;font-size:10px;letter-spacing:.12em;text-transform:uppercase;margin-top:auto;padding-top:12px;border-top:1px solid var(--bd);display:flex;align-items:center;gap:8px;transition:gap .2s}
+.pc:hover .plink{gap:14px}
+.cr .pt,.cr .plink{color:var(--r)}.cr::after{background:var(--r)}.cr .ph{color:var(--r)}
+.cg .pt,.cg .plink{color:var(--g)}.cg::after{background:var(--g)}.cg .ph{color:var(--g)}
+.cgr .pt,.cgr .plink{color:var(--gr)}.cgr::after{background:var(--gr)}.cgr .ph{color:var(--gr)}
+.cb .pt,.cb .plink{color:var(--b)}.cb::after{background:var(--b)}.cb .ph{color:var(--b)}
+.cp .pt,.cp .plink{color:var(--p)}.cp::after{background:var(--p)}.cp .ph{color:var(--p)}
+.co .pt,.co .plink{color:var(--o)}.co::after{background:var(--o)}.co .ph{color:var(--o)}
+
+/* section label inside grid */
+.grid-section-label{grid-column:1/-1;padding:16px 32px;background:var(--m);border-bottom:1px solid var(--bd);border-right:none!important}
+.grid-section-label span{font-family:'DM Mono',monospace;font-size:10px;letter-spacing:.2em;text-transform:uppercase;color:var(--mu)}
+
+/* coursework */
+.cr2{display:grid;grid-template-columns:52px 240px 1fr auto;align-items:center;padding:16px 44px;border-bottom:1px solid var(--bd);gap:24px;transition:background .2s}
+.cr2:hover{background:var(--m)}
+.cn{font-family:'DM Mono',monospace;font-size:10px;color:var(--mu);letter-spacing:.1em}
+.cname{font-size:13px;font-weight:500;color:var(--w)}
+.cdesc{font-size:12px;color:var(--mu)}
+.ctag{font-family:'DM Mono',monospace;font-size:9px;letter-spacing:.12em;text-transform:uppercase;color:var(--r);white-space:nowrap;padding:3px 9px;border:1px solid var(--r)}
+
+/* research */
+.rr{display:grid;grid-template-columns:180px 1fr;border-bottom:1px solid var(--bd)}
+.rpub{padding:28px;border-right:1px solid var(--bd);display:flex;align-items:center;justify-content:center}
+.pbadge{font-family:'Bebas Neue',sans-serif;font-size:26px;letter-spacing:.05em;color:var(--g);text-align:center}
+.rb{padding:28px 44px}
+.rtit{font-size:15px;font-weight:500;color:var(--w);margin-bottom:8px;line-height:1.4}
+.rmeta{font-size:12px;color:var(--mu);line-height:1.8}
+.rlink{color:var(--r);text-decoration:none;font-family:'DM Mono',monospace;font-size:10px;letter-spacing:.1em;text-transform:uppercase;margin-top:10px;display:inline-block}
+.rlink:hover{color:var(--g)}
+
+/* contact */
+.cw{padding:80px 60px;display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:center}
+.chl{font-family:'Bebas Neue',sans-serif;font-size:clamp(48px,6vw,80px);line-height:.92;letter-spacing:.02em}
+.chl span{color:var(--r)}
+.csub{font-size:13px;color:var(--mu);margin-top:24px;line-height:1.9}
+.cls{display:flex;flex-direction:column;gap:14px}
+.cl{display:flex;align-items:center;justify-content:space-between;padding:18px 22px;background:var(--m);text-decoration:none;color:var(--w);font-size:13px;transition:all .2s;border:1px solid transparent}
+.cl:hover{border-color:var(--r);color:var(--r)}
+.cll{font-family:'DM Mono',monospace;font-size:9px;letter-spacing:.15em;text-transform:uppercase;color:var(--mu);display:block;margin-bottom:3px}
+.cl:hover .cll{color:var(--r);opacity:.7}
+.arr{font-size:16px;transition:transform .2s}.cl:hover .arr{transform:translateX(4px)}
+footer{padding:22px 60px;display:flex;justify-content:space-between;align-items:center;border-top:1px solid var(--bd)}
+footer p{font-family:'DM Mono',monospace;font-size:10px;letter-spacing:.1em;color:var(--mu);text-transform:uppercase}
+
+/* hero animation */
+@keyframes fu{from{opacity:0;transform:translateY(22px)}to{opacity:1;transform:translateY(0)}}
+.hl>*{animation:fu .65s ease both}
+.hl>*:nth-child(1){animation-delay:.1s}.hl>*:nth-child(2){animation-delay:.22s}.hl>*:nth-child(3){animation-delay:.36s}.hl>*:nth-child(4){animation-delay:.5s}
+
+/* ── OVERLAY SHARED STYLES ── */
+.oh{min-height:62vh;display:flex;flex-direction:column;justify-content:flex-end;padding:100px 80px 56px;position:relative;overflow:hidden;border-bottom:1px solid var(--bd)}
+.otag{font-family:'DM Mono',monospace;font-size:11px;letter-spacing:.2em;text-transform:uppercase;margin-bottom:18px;position:relative;z-index:1}
+.oname{font-family:'Bebas Neue',sans-serif;font-size:clamp(52px,9vw,120px);line-height:.88;letter-spacing:.02em;position:relative;z-index:1}
+.ohead{font-size:clamp(15px,2vw,22px);font-weight:400;line-height:1.5;margin-top:22px;max-width:780px;position:relative;z-index:1;color:#c8c0b4}
+.omets{display:flex;gap:0;margin-top:44px;border:1px solid var(--bd);position:relative;z-index:1;width:fit-content;flex-wrap:wrap}
+.omet{padding:20px 32px;border-right:1px solid var(--bd);text-align:center}
+.omet:last-child{border-right:none}
+.omn{font-family:'Bebas Neue',sans-serif;font-size:40px;line-height:1}
+.oml{font-family:'DM Mono',monospace;font-size:9px;letter-spacing:.15em;text-transform:uppercase;color:var(--mu);margin-top:4px}
+.obody{max-width:1060px;margin:0 auto;padding:0 80px 80px}
+.osec{padding:52px 0;border-bottom:1px solid var(--bd)}
+.osec:last-child{border-bottom:none}
+.ostag{font-family:'DM Mono',monospace;font-size:10px;letter-spacing:.2em;text-transform:uppercase;color:var(--mu);margin-bottom:16px}
+.ostit{font-family:'Bebas Neue',sans-serif;font-size:36px;letter-spacing:.03em;margin-bottom:20px}
+.otxt{font-size:14px;color:#a09890;line-height:1.9;max-width:720px}
+.otxt strong{color:var(--w);font-weight:500}
+.otxt p{margin-bottom:14px}
+
+/* flow diagram */
+.flow{display:flex;align-items:center;margin:28px 0;flex-wrap:wrap;gap:4px}
+.fstep{padding:16px 20px;background:var(--m);border:1px solid var(--bd);text-align:center;min-width:120px}
+.fsn{font-family:'DM Mono',monospace;font-size:9px;letter-spacing:.14em;text-transform:uppercase;color:var(--mu);margin-bottom:4px}
+.fsname{font-size:12px;font-weight:500;color:var(--w)}
+.farr{padding:0 6px;color:var(--mu);font-size:14px}
+
+/* result grid */
+.rgrid{display:grid;grid-template-columns:repeat(3,1fr);gap:2px;margin:24px 0}
+.rcard{padding:24px 20px;background:var(--m);border:1px solid var(--bd)}
+.rn{font-family:'Bebas Neue',sans-serif;font-size:44px;line-height:1;margin-bottom:8px}
+.rl{font-size:12px;color:#a09890;line-height:1.6}
+
+/* comparison table */
+.ctbl{width:100%;border-collapse:collapse;margin:24px 0;font-size:13px}
+.ctbl th{font-family:'DM Mono',monospace;font-size:9px;letter-spacing:.15em;text-transform:uppercase;color:var(--mu);padding:11px 18px;border-bottom:1px solid var(--bd);text-align:left}
+.ctbl td{padding:12px 18px;border-bottom:1px solid var(--bd);color:#a09890}
+.ctbl td:first-child{color:var(--w);font-weight:500}
+.ctbl tr:hover td{background:var(--m)}
+.hlrow td{color:var(--w)!important;font-weight:500!important}
+.hlrow td:first-child{color:var(--gr)!important}
+
+/* bar chart */
+.barchart{margin:24px 0}
+.brow{display:flex;align-items:center;gap:14px;margin-bottom:11px}
+.blbl{font-family:'DM Mono',monospace;font-size:9px;letter-spacing:.1em;text-transform:uppercase;color:var(--mu);width:110px;flex-shrink:0}
+.btrack{flex:1;height:8px;background:var(--m);border:1px solid var(--bd);overflow:hidden}
+.bfill{height:100%;transition:width 1.4s cubic-bezier(.16,1,.3,1);width:0}
+.bval{font-family:'DM Mono',monospace;font-size:10px;color:var(--w);width:72px;text-align:right;flex-shrink:0}
+
+/* constraint list */
+.clist{list-style:none;margin:20px 0}
+.clist li{padding:12px 18px;background:var(--m);border-left:3px solid var(--bd);margin-bottom:2px;font-size:13px;color:#a09890}
+.clist li strong{color:var(--w)}
+.clist li.active{border-left-color:var(--r)}
+
+/* sensitivity table */
+.stbl{width:100%;border-collapse:collapse;margin:20px 0;font-size:12px}
+.stbl th{font-family:'DM Mono',monospace;font-size:9px;letter-spacing:.14em;text-transform:uppercase;color:var(--mu);padding:10px 16px;border-bottom:1px solid var(--bd);text-align:left}
+.stbl td{padding:11px 16px;border-bottom:1px solid var(--bd);color:#a09890}
+.stbl td:first-child{color:var(--w)}
+.stbl tr:hover td{background:var(--m)}
+.highlight{color:var(--g)!important;font-weight:500}
+
+/* tools */
+.tools{display:flex;flex-wrap:wrap;gap:8px;margin-top:16px}
+.ttag{padding:5px 13px;background:var(--m);font-family:'DM Mono',monospace;font-size:9px;letter-spacing:.1em;text-transform:uppercase;color:var(--mu);border:1px solid var(--bd)}
+
+/* overlay links */
+.olinks{display:flex;gap:12px;flex-wrap:wrap;margin-top:24px}
+.olink{display:inline-flex;align-items:center;gap:8px;padding:10px 20px;font-family:'DM Mono',monospace;font-size:11px;letter-spacing:.1em;text-transform:uppercase;text-decoration:none;transition:all .2s;border:1px solid var(--bd);color:var(--w)}
+.olink:hover{background:var(--w);color:var(--k);border-color:var(--w)}
+.olink.pri{background:var(--r);color:var(--k);border-color:var(--r)}.olink.pri:hover{background:var(--g);border-color:var(--g)}
+
+/* quote/insight box */
+.insight{background:var(--m);border-left:4px solid var(--g);padding:20px 24px;margin:20px 0;font-size:14px;color:var(--w);line-height:1.7}
+.insight cite{display:block;margin-top:8px;font-family:'DM Mono',monospace;font-size:10px;letter-spacing:.1em;text-transform:uppercase;color:var(--mu);font-style:normal}
+
+@media(max-width:900px){
+  .hero{grid-template-columns:1fr}.hl{border-right:none;padding:48px 28px}.hr2{display:none}
+  .sh{grid-template-columns:1fr}.snum{display:none}.stit{padding:16px 24px}
+  .eg{grid-template-columns:1fr}.es{border-right:none;border-bottom:1px solid var(--bd)}
+  .pg{grid-template-columns:1fr}.pc{border-right:none}
+  .cr2{grid-template-columns:1fr 2fr;padding:14px 24px}.cn,.ctag{display:none}
+  .rr{grid-template-columns:1fr}.rpub{border-right:none;border-bottom:1px solid var(--bd)}
+  .cw{grid-template-columns:1fr;gap:36px;padding:48px 28px}
+  footer{flex-direction:column;gap:8px;text-align:center;padding:18px 28px}
+  .oh{padding:80px 28px 44px}.obody{padding:0 28px 56px}
+  .omets{flex-direction:column}.omet{border-right:none;border-bottom:1px solid var(--bd)}
+  .rgrid{grid-template-columns:1fr 1fr}
+}
+</style>
+</head>
+<body>
+<div id="mv">
+
+<!-- HERO -->
+<header class="hero">
+  <div class="hl">
+    <div>
+      <p class="htag">MS Business Analytics · Northeastern · GPA 4.0 · Dec 2026</p>
+      <h1 class="hname">Sarang<span>Bathalapalli</span></h1>
+      <p class="hbio">Data scientist with <strong>3+ years of experience</strong> across healthcare AI, fintech, and banking compliance. <strong>IEEE and Springer published researcher.</strong> I build systems that turn messy, uncertain data into decisions that matter — from graph-grounded clinical AI to LP-optimized supply chains.<br><br>Open to <strong>Summer 2026 internships</strong> in Data Science, ML Engineering &amp; Analytics.</p>
+    </div>
+    <div>
+      <div class="hstats">
+        <div><div class="sn">3+</div><div class="sl">Years Exp</div></div>
+        <div><div class="sn">2</div><div class="sl">Publications</div></div>
+        <div><div class="sn">4.0</div><div class="sl">GPA</div></div>
+        <div><div class="sn">10+</div><div class="sl">Projects</div></div>
+      </div>
+      <div class="ctar">
+        <a href="[RESUME_LINK]" class="btn br">Resume ↓</a>
+        <a href="https://linkedin.com/in/sarrang9/" class="btn bg" target="_blank">LinkedIn</a>
+        <a href="https://github.com/SarrangTech" class="btn bg" target="_blank">GitHub</a>
+      </div>
+    </div>
+  </div>
+  <div class="hr2">
+    <p class="sklbl">Core Stack</p>
+    <div class="skgrid">
+      <div class="skc"><span class="skcl">ML/AI</span>XGBoost · LightGBM · CNNs · LLMs · RAG</div>
+      <div class="skc"><span class="skcl">Optimization</span>LP · Integer Programming · PuLP · Monte Carlo</div>
+      <div class="skc"><span class="skcl">Graph AI</span>Neo4j · Cypher · PrimeKG · Knowledge Graphs</div>
+      <div class="skc"><span class="skcl">Languages</span>Python · SQL · PL/SQL · TypeScript · R</div>
+      <div class="skc"><span class="skcl">NLP</span>spaCy · NLTK · Transformers · NER · TF-IDF</div>
+      <div class="skc"><span class="skcl">Explainability</span>SHAP · LIME · EBM · Partial Dependence</div>
+      <div class="skc"><span class="skcl">Infra</span>Docker · FastAPI · Streamlit · Ollama · React</div>
+      <div class="skc"><span class="skcl">Viz</span>Tableau · Recharts · Matplotlib · Power BI</div>
+    </div>
+  </div>
+</header>
+
+<!-- EXPERIENCE -->
+<section>
+  <div class="sh"><div class="snum">01 / EXPERIENCE</div><div class="stit">Where I've Done the Work</div></div>
+  <div class="eg">
+    <div class="es"><div class="eco">Arca AI</div><div class="er">Data Scientist</div><div class="ep">Sep 2024 – Aug 2025<br>Healthcare AI · Bangalore</div></div>
+    <div class="eb">
+      <p class="ed"><strong>Replaced probabilistic RAG with a Neo4j knowledge graph</strong> mapping 129,000+ PrimeKG disease-drug-protein entities to eliminate hallucination in clinical diagnosis. Generated validated diagnosis lists via Cypher + LLaMA 3 with chain-of-thought prompting. <strong>Deployed via Ollama on A2A cloud</strong> — HIPAA-compliant inference, zero PHI to external APIs. <strong>Cut manual billing review by 40%</strong> across 10,000+ monthly claims. Flagged insurance fraud mismatches in 10,000+ monthly referral records.</p>
+      <div class="pills"><span class="pill">Neo4j</span><span class="pill">PrimeKG</span><span class="pill">LLaMA 3</span><span class="pill">Qwen</span><span class="pill">Ollama</span><span class="pill">Cypher</span><span class="pill">RAG</span><span class="pill">HIPAA</span></div>
+    </div>
+  </div>
+  <hr class="ediv">
+  <div class="eg">
+    <div class="es"><div class="eco">Viai Solutions</div><div class="er">Data Scientist Intern</div><div class="ep">Jan–Aug 2024 · Fintech</div></div>
+    <div class="eb">
+      <p class="ed">Dual-frequency Bitcoin price pipeline with S&P 500 correlation features. <strong>0.06 RMSE daily, ~65% directional accuracy</strong> using Bi-LSTM over SARIMAX and ARIMA. Streamlit dashboard consolidating live feed, cross-market correlations, and forecast vs actuals.</p>
+      <div class="pills"><span class="pill">Bi-LSTM</span><span class="pill">SARIMAX</span><span class="pill">TensorFlow</span><span class="pill">Streamlit</span></div>
+    </div>
+  </div>
+  <hr class="ediv">
+  <div class="eg">
+    <div class="es"><div class="eco">Azentio Software</div><div class="er">Data Scientist Intern</div><div class="ep">Jan–Jul 2023 · Banking AML</div></div>
+    <div class="eb">
+      <p class="ed">spaCy NER pipelines detecting banned entities in SWIFT transaction narration fields for OFAC compliance. Enhanced Levenshtein distance with contextual information for improved financial entity classification.</p>
+      <div class="pills"><span class="pill">spaCy</span><span class="pill">NER</span><span class="pill">OFAC</span><span class="pill">SWIFT</span><span class="pill">AML</span></div>
+    </div>
+  </div>
+  <hr class="ediv">
+  <div class="eg">
+    <div class="es"><div class="eco">Northeastern University</div><div class="er">Graduate Teaching Assistant</div><div class="ep">Jan 2026–Present · DBMS / Stats</div></div>
+    <div class="eb">
+      <p class="ed">TA for database design, advanced SQL/NoSQL, and business statistics. <strong>Corrected errors in 30+ student projects.</strong> <strong>15% improvement in course performance metrics.</strong> Built Oracle SQL window function curriculum. Senator of Technology, Northeastern Graduate Student Government.</p>
+      <div class="pills"><span class="pill">Oracle SQL</span><span class="pill">NoSQL</span><span class="pill">MongoDB</span><span class="pill">ANOVA</span><span class="pill">ERD Design</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- ML PROJECTS -->
+<section>
+  <div class="sh"><div class="snum">02 / ML PROJECTS</div><div class="stit">Click Any Card → Full Case Study</div></div>
+  <div class="pg">
+    <div class="pc cr" onclick="openOv('ignisai')">
+      <div class="pt">Deep Learning · Computer Vision · Edge AI · IEEE</div>
+      <div class="pn">IgnisAI</div>
+      <div class="ph">97.7% recall — zero missed fires in network-isolated UAV conditions</div>
+      <p class="pd">MobileNetV2 on 19,913 drone images. Chose 14MB model over 88MB alternative — intentional 1% accuracy tradeoff for 4× edge footprint reduction. IEEE published at AWS/Microsoft/IBM-backed conference.</p>
+      <div class="pills"><span class="pill">MobileNetV2</span><span class="pill">Docker</span><span class="pill">IEEE</span></div>
+      <div class="plink">Open Case Study →</div>
+    </div>
+    <div class="pc cg" onclick="openOv('sentinelpay')">
+      <div class="pt">ML · Fraud Detection · Ensemble · Real-Time API</div>
+      <div class="pn">SentinelPay</div>
+      <div class="ph">~$67,896 fraud prevented — 92% recall at 0.172% fraud rate</div>
+      <p class="pd">Solved model collapse at extreme imbalance using SMOTE-ENN + class weight tuning + threshold optimization. XGBoost/LightGBM/CatBoost ensemble deployed via FastAPI + Docker.</p>
+      <div class="pills"><span class="pill">XGBoost</span><span class="pill">SMOTE-ENN</span><span class="pill">FastAPI</span></div>
+      <div class="plink">Open Case Study →</div>
+    </div>
+    <div class="pc cgr" onclick="openOv('fedaudit')">
+      <div class="pt">Explainable AI · Public Sector · SHAP</div>
+      <div class="pn">FedAuditAI</div>
+      <div class="ph">2–3 weeks → &lt;1 hour audit triage on $41.43T DoD obligations</div>
+      <p class="pd">Caught 86 target leakage instances inflating accuracy 90%+. Rebuilt with 67 clean features. XGBoost + SHAP + live 6-tab React dashboard deployed on Vercel.</p>
+      <div class="pills"><span class="pill">XGBoost</span><span class="pill">SHAP</span><span class="pill">React 18</span></div>
+      <div class="plink">Open Case Study →</div>
+    </div>
+    <div class="pc cb" onclick="openOv('p2p')">
+      <div class="pt">Explainable ML · Credit Risk · Springer / SCOPUS</div>
+      <div class="pn">P2P Lending Risk</div>
+      <div class="ph">95% precision — 179,235 loans, 61.6% missing values</div>
+      <p class="pd">Tiered imputation preserved 98% signal. LightGBM beat XGBoost 10× on RMSE stability (0.03 vs 0.30). EBM + SHAP + LIME explainability stack. Published Springer LNNS.</p>
+      <div class="pills"><span class="pill">LightGBM</span><span class="pill">EBM</span><span class="pill">Springer</span></div>
+      <div class="plink">Open Case Study →</div>
+    </div>
+    <div class="pc cp" onclick="openOv('nba')">
+      <div class="pt">Integer Programming · Stochastic Optimization</div>
+      <div class="pn">NBA Broadcast Optimizer</div>
+      <div class="ph">474.44 expected value — IP solved across 256 playoff calendars</div>
+      <p class="pd">4⁴=256 Round 1 scenarios. Separate binary IP per scenario. 6-factor objective: team interest, competitiveness, slot value, game probability, round weight, leverage.</p>
+      <div class="pills"><span class="pill">PuLP</span><span class="pill">Binary IP</span><span class="pill">256 Scenarios</span></div>
+      <div class="plink">Open Case Study →</div>
+    </div>
+    <div class="pc cr" onclick="openOv('kepler')">
+      <div class="pt">Ensemble ML · Astronomy · EDA-Driven</div>
+      <div class="pn">Kepler Classifier</div>
+      <div class="ph">&lt;1% false positives — 7% over RF on 9,500 Kepler objects</div>
+      <p class="pd">EDA revealed multicollinearity + high dimensionality → ruled out parametric models. 4-model Voting Classifier (XGB + LGB + AdaBoost + RF) across 49 features.</p>
+      <div class="pills"><span class="pill">XGBoost</span><span class="pill">LightGBM</span><span class="pill">Voting Classifier</span></div>
+      <div class="plink">Open Case Study →</div>
+    </div>
+  </div>
+</section>
+
+<!-- BUSINESS MODELING PROJECTS -->
+<section>
+  <div class="sh"><div class="snum">03 / BUSINESS MODELING</div><div class="stit">Optimization & Analytics Case Studies</div></div>
+  <div class="pg">
+    <div class="pc co" onclick="openOv('harbor')">
+      <div class="pt">Linear Programming · Sensitivity Analysis · Excel</div>
+      <div class="pn">Harbor Logistics DC</div>
+      <div class="ph">$5,701,950 optimal profit — 6-zone warehouse LP with shadow price analysis</div>
+      <p class="pd">LP space allocation across Receiving, Storage, Picking, VAS, Office. Sensitivity analysis: expanding to 140K sq ft yields $1.23M more. Shadow price: $71.75/sqft on receiving constraint.</p>
+      <div class="pills"><span class="pill">LP</span><span class="pill">Excel Solver</span><span class="pill">Sensitivity Analysis</span></div>
+      <div class="plink">Open Case Study →</div>
+    </div>
+    <div class="pc cgr" onclick="openOv('midatlantic')">
+      <div class="pt">Linear Programming · Energy Mix · Environmental Constraints</div>
+      <div class="pn">MidAtlantic Power</div>
+      <div class="ph">$1,798,000/week minimum cost — 5-source generation mix with CO₂ cap</div>
+      <p class="pd">Minimization LP across coal, gas, nuclear, wind, solar. CO₂ shadow price $52/ton. Tighter regulation by 2,000 tons adds $104K/week. Python/PuLP with dual value interpretation.</p>
+      <div class="pills"><span class="pill">LP</span><span class="pill">PuLP</span><span class="pill">Energy Policy</span></div>
+      <div class="plink">Open Case Study →</div>
+    </div>
+    <div class="pc cp" onclick="openOv('rougir')">
+      <div class="pt">LP · Make vs Outsource · Manufacturing</div>
+      <div class="pn">Rougir Cosmetics</div>
+      <div class="ph">$584,473 optimal production cost — make-vs-outsource LP across 2 shifts</div>
+      <p class="pd">Per-unit cost derived from raw material inputs and shift-specific labor rates. LP determines optimal allocation of face/body/hand cream production across Shift 1 and 2 given capacity constraints.</p>
+      <div class="pills"><span class="pill">LP</span><span class="pill">Make vs Buy</span><span class="pill">Excel Solver</span></div>
+      <div class="plink">Open Case Study →</div>
+    </div>
+    <div class="pc cb" onclick="openOv('dhl')">
+      <div class="pt">Transportation Network · Consolidation · India→Frankfurt</div>
+      <div class="pn">DHL Global Forwarding</div>
+      <div class="ph">Hit >1,000kg tier (₹90 vs ₹130/kg) — road-routing consolidation across 3 Indian cities</div>
+      <p class="pd">Optimized freight consolidation across Hyderabad, Bengaluru, Chennai to Frankfurt. Modeled delay risk explicitly: expected cost = air + road + (0.02 × penalty). Weekly total: ₹4,130,000.</p>
+      <div class="pills"><span class="pill">Network Opt</span><span class="pill">Risk Modeling</span><span class="pill">Logistics</span></div>
+      <div class="plink">Open Case Study →</div>
+    </div>
+    <div class="pc cr" onclick="openOv('tournament')">
+      <div class="pt">Integer Programming · Greedy Heuristic · Comparison</div>
+      <div class="pn">Tournament Scheduling</div>
+      <div class="ph">IP optimal 155.5 vs greedy 148.5 — 4.5% gap analysis across 6 teams</div>
+      <p class="pd">Binary IP vs 2-pass greedy heuristic for 6-team basketball bracket. Both satisfy all constraints. Rigorous analysis of when heuristics beat exact solvers in time-critical scheduling.</p>
+      <div class="pills"><span class="pill">Binary IP</span><span class="pill">Greedy</span><span class="pill">Comparison</span></div>
+      <div class="plink">Open Case Study →</div>
+    </div>
+    <div class="pc cg" onclick="openOv('montecarlo')">
+      <div class="pt">Monte Carlo · DCF Valuation · Stochastic Simulation</div>
+      <div class="pn">Netscape IPO Simulation</div>
+      <div class="ph">Was $28/share justified? Stochastic DCF across 8 uncertain parameters</div>
+      <p class="pd">Modeled Netscape 1995 IPO under uncertainty: revenue growth N(65%,5%), R&D triangular(32%,42%), market premium uniform(5%,10%), plus 5 more stochastic parameters. Quantified price-per-share distribution.</p>
+      <div class="pills"><span class="pill">Monte Carlo</span><span class="pill">DCF</span><span class="pill">Python</span></div>
+      <div class="plink">Open Case Study →</div>
+    </div>
+  </div>
+</section>
+
+<!-- COURSEWORK QUICK-VIEW -->
+<section>
+  <div class="sh"><div class="snum">04 / MORE COURSEWORK</div><div class="stit">Additional Analyses</div></div>
+  <div class="cr2"><div class="cn">01</div><div class="cname">Acadia Coffee Blend LP</div><div class="cdesc">Profit max: $2,461.22. Shadow price: Costa Rican beans $11.07/lb (binding), Mexican $0 (non-binding). Solved both PuLP and scipy.optimize with verified identical results.</div><div class="ctag">LP · PuLP</div></div>
+  <div class="cr2"><div class="cn">02</div><div class="cname">Campus Coffee Revenue Simulation</div><div class="cdesc">500-day sim. Exp interarrival μ=0.8 min. 5% catering orders (Exp μ=$75). Mean $3,835 · Std $452 · 5th–95th: $3,148–$4,593. Validated against analytical expectations.</div><div class="ctag">Monte Carlo</div></div>
+  <div class="cr2"><div class="cn">03</div><div class="cname">COVID-19 Healthcare Capacity Risk</div><div class="cdesc">R²=0.74 regression — bed count and staffing ratios as top mortality predictors in 50 counties. K-means identified 10 highest-risk counties for emergency deployment. Certificate of Merit, CBIT.</div><div class="ctag">Regression · Clustering</div></div>
+  <div class="cr2"><div class="cn">04</div><div class="cname">AHP Value-Based Task Optimizer</div><div class="cdesc">Multi-criteria decision tool using Analytic Hierarchy Process + stochastic optimization to prioritize tasks by aligned values under uncertainty. Operations Research course capstone.</div><div class="ctag">AHP · Stochastic Opt</div></div>
+  <div class="cr2"><div class="cn">05</div><div class="cname">Binary Variables in Optimization Models</div><div class="cdesc">Big-M formulations for fixed costs, min/max usage thresholds, quantity discounts, and conditional logic. Implemented and verified in Python with constraint satisfaction checks.</div><div class="ctag">Binary IP · Big-M</div></div>
+</section>
+
+<!-- RESEARCH -->
+<section>
+  <div class="sh"><div class="snum">05 / RESEARCH</div><div class="stit">Peer-Reviewed Publications</div></div>
+  <div class="rr">
+    <div class="rpub"><div class="pbadge">IEEE</div></div>
+    <div class="rb">
+      <div class="rtit">A Deep Learning Approach to Forest Fire Detection and Monitoring</div>
+      <div class="rmeta">Presented at ICAICCIT 2023 — IEEE Delhi Section conference backed by AWS, Microsoft, and IBM. CNN-based UAV fire detection via MobileNetV2 transfer learning on 19,913 drone images. 97.7% recall, edge-deployed via Docker, zero missed fires in network-isolated conditions.</div>
+      <a href="https://ieeexplore.ieee.org/document/10465865" class="rlink" target="_blank">View on IEEE Xplore →</a>
+    </div>
+  </div>
+  <div class="rr">
+    <div class="rpub"><div class="pbadge">Springer</div></div>
+    <div class="rb">
+      <div class="rtit">Peer to Peer Lending: Machine Learning Insights for Enhanced Understanding</div>
+      <div class="rmeta">Presented at ICCIDE-2024, VIT-AP University. Published in Springer Lecture Notes in Networks and Systems. Indexed in SCOPUS and EI Compendex. EBM + SHAP + LIME explainability framework across 179,235 Bondora records — 95% precision on high-risk borrowers.</div>
+      <a href="https://link.springer.com/chapter/10.1007/978-981-96-4691-3_13" class="rlink" target="_blank">View on Springer →</a>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section>
+  <div class="cw">
+    <div>
+      <h2 class="chl">Let's<br><span>Talk</span><br>Data.</h2>
+      <p class="csub">Open to Summer 2026 internships — Data Science, ML Engineering, Data Engineering, Analytics.<br><br>Based in Boston, MA. Open to remote and hybrid.</p>
+    </div>
+    <div class="cls">
+      <a href="mailto:sarrang9x@gmail.com" class="cl"><div><span class="cll">Email</span>sarrang9x@gmail.com</div><span class="arr">→</span></a>
+      <a href="https://linkedin.com/in/sarrang9/" class="cl" target="_blank"><div><span class="cll">LinkedIn</span>linkedin.com/in/sarrang9</div><span class="arr">→</span></a>
+      <a href="https://github.com/SarrangTech" class="cl" target="_blank"><div><span class="cll">GitHub</span>github.com/SarrangTech</div><span class="arr">→</span></a>
+      <a href="https://portfolio-website-rho-livid-29.vercel.app/" class="cl" target="_blank"><div><span class="cll">Full Portfolio</span>portfolio-website-rho-livid-29.vercel.app</div><span class="arr">→</span></a>
+    </div>
+  </div>
+</section>
+<footer>
+  <p>Sarang Bathalapalli · MS Business Analytics · Northeastern University · Dec 2026</p>
+  <p>Boston, MA · Open to Summer 2026 Internships · (857) 296-2889</p>
+</footer>
+</div><!-- end #mv -->
+
+<!-- ════════════════════ ML OVERLAYS ════════════════════ -->
+
+<!-- IGNISAI -->
+<div id="ov-ignisai" class="ov">
+<button class="cbtn" onclick="closeOv()">← Back</button>
+<div class="oh" style="background:linear-gradient(155deg,#200800 0%,#080808 60%)">
+  <div class="otag" style="color:var(--r)">Deep Learning · Computer Vision · Edge AI · IEEE Published 2023</div>
+  <div class="oname">IgnisAI</div>
+  <div class="ohead">Cut wildfire false alarms by 97.7% — deployed a 14MB model running with zero missed fire detections in completely network-isolated forest conditions.</div>
+  <div class="omets">
+    <div class="omet"><div class="omn" style="color:var(--r)">97.7%</div><div class="oml">Recall Rate</div></div>
+    <div class="omet"><div class="omn" style="color:var(--g)">14MB</div><div class="oml">Edge Model Size</div></div>
+    <div class="omet"><div class="omn" style="color:var(--w)">19,913</div><div class="oml">Training Images</div></div>
+    <div class="omet"><div class="omn" style="color:var(--gr)">0</div><div class="oml">Missed Fires</div></div>
+    <div class="omet"><div class="omn" style="color:var(--g)">4×</div><div class="oml">Smaller Than Best Alt.</div></div>
+  </div>
+</div>
+<div class="obody">
+  <div class="osec">
+    <div class="ostag">The Problem</div>
+    <div class="ostit">Wildfires Kill Fast. Detection Can't Depend on the Cloud.</div>
+    <div class="otxt">
+      <p>Forest departments use UAV surveillance for early wildfire detection — but traditional systems produce massive false alarm rates, causing alert fatigue and wasting emergency crews. The harder problem: UAVs patrol remote forests where network connectivity is unreliable or absent. A system requiring cloud inference has a single catastrophic point of failure.</p>
+      <p>The data problem was equally hard. No single open dataset covered fire scenarios across the full range of lighting conditions, drone angles, fire sizes, and smoke densities that field deployments encounter.</p>
+    </div>
+  </div>
+  <div class="osec">
+    <div class="ostag">The Creative Approach</div>
+    <div class="ostit">The Best Model Isn't the Most Accurate One</div>
+    <div class="otxt">
+      <p>The headline insight was an engineering tradeoff decision. <strong>Xception hit 98.8% accuracy but weighed 88MB. MobileNetV2 hit 97.8% at 14MB.</strong> On a UAV with constrained storage and no internet, a 4× smaller model that still nearly tops benchmarks is the correct call. Sacrificing 1% accuracy to achieve deployability is not a limitation — it's the design.</p>
+      <p>To build robustness across scenarios, I combined three separate datasets into a 19,913-image pipeline and applied shear, zoom, and horizontal flip augmentation to simulate the real-world variation in how fire appears from different drone angles and lighting conditions.</p>
+    </div>
+    <table class="ctbl">
+      <thead><tr><th>Model</th><th>Accuracy</th><th>Size</th><th>Edge Viable</th><th>Decision</th></tr></thead>
+      <tbody>
+        <tr><td>Xception</td><td>98.8%</td><td>88MB</td><td>No</td><td>Rejected</td></tr>
+        <tr class="hlrow"><td>MobileNetV2 ✓</td><td>97.8%</td><td>14MB</td><td>Yes</td><td>Selected</td></tr>
+      </tbody>
+    </table>
+    <div class="flow">
+      <div class="fstep"><div class="fsn">Step 1</div><div class="fsname">3 Datasets → 19,913 Images</div></div>
+      <div class="farr">→</div>
+      <div class="fstep"><div class="fsn">Step 2</div><div class="fsname">Augmentation Pipeline</div></div>
+      <div class="farr">→</div>
+      <div class="fstep"><div class="fsn">Step 3</div><div class="fsname">MobileNetV2 Fine-Tune</div></div>
+      <div class="farr">→</div>
+      <div class="fstep"><div class="fsn">Step 4</div><div class="fsname">Docker Container (14MB)</div></div>
+      <div class="farr">→</div>
+      <div class="fstep"><div class="fsn">Step 5</div><div class="fsname">Network-Isolation Test</div></div>
+    </div>
+  </div>
+  <div class="osec">
+    <div class="ostag">Edge Validation</div>
+    <div class="ostit">Simulated Zero-Network Forest Deployment</div>
+    <div class="otxt"><p>Containerized the model with Docker and used <strong>Docker network isolation</strong> to completely cut off external connectivity — simulating a UAV deep in a forest with no signal. The model processed GPS-tagged images from local storage only. No API calls. No cloud. <strong>Zero missed fire detections.</strong> This removes the network as a single point of failure by design.</p></div>
+  </div>
+  <div class="osec">
+    <div class="ostag">Results</div><div class="ostit">The Numbers</div>
+    <div class="rgrid">
+      <div class="rcard"><div class="rn" style="color:var(--r)">97.7%</div><div class="rl">Recall — real fires correctly flagged across 20,000+ drone images</div></div>
+      <div class="rcard"><div class="rn" style="color:var(--g)">4×</div><div class="rl">Smaller model than the best alternative, enabling UAV edge deployment</div></div>
+      <div class="rcard"><div class="rn" style="color:var(--gr)">0</div><div class="rl">Missed fire detections under Docker-isolated, network-free test conditions</div></div>
+    </div>
+  </div>
+  <div class="osec">
+    <div class="ostag">Stack</div><div class="ostit">Built With</div>
+    <div class="tools"><span class="ttag">Python</span><span class="ttag">TensorFlow</span><span class="ttag">Keras</span><span class="ttag">MobileNetV2</span><span class="ttag">Xception</span><span class="ttag">Transfer Learning</span><span class="ttag">ImageNet</span><span class="ttag">Data Augmentation</span><span class="ttag">Docker</span><span class="ttag">FastAPI</span><span class="ttag">GridSearchCV</span></div>
+    <div class="olinks">
+      <a href="https://github.com/SarrangTech/Forest_Fire_Monitor" class="olink pri" target="_blank">GitHub →</a>
+      <a href="https://ieeexplore.ieee.org/document/10465865" class="olink" target="_blank">IEEE Paper →</a>
+    </div>
+  </div>
+</div>
+</div>
+
+<!-- SENTINELPAY -->
+<div id="ov-sentinelpay" class="ov">
+<button class="cbtn" onclick="closeOv()">← Back</button>
+<div class="oh" style="background:linear-gradient(155deg,#201000 0%,#080808 60%)">
+  <div class="otag" style="color:var(--g)">ML · Fraud Detection · Ensemble Methods · Real-Time API</div>
+  <div class="oname">SentinelPay</div>
+  <div class="ohead">Prevented ~$67,896 in potential fraud — 92% recall on 284,807 transactions at a 0.172% fraud rate that causes most models to collapse.</div>
+  <div class="omets">
+    <div class="omet"><div class="omn" style="color:var(--g)">$67,896</div><div class="oml">Fraud Loss Prevented</div></div>
+    <div class="omet"><div class="omn" style="color:var(--w)">92%</div><div class="oml">Recall on Fraud</div></div>
+    <div class="omet"><div class="omn" style="color:var(--r)">453/492</div><div class="oml">Cases Caught</div></div>
+    <div class="omet"><div class="omn" style="color:var(--gr)">284,807</div><div class="oml">Transactions</div></div>
+  </div>
+</div>
+<div class="obody">
+  <div class="osec">
+    <div class="ostag">The Core Problem</div>
+    <div class="ostit">Model Collapse at 0.172% Fraud Rate</div>
+    <div class="otxt"><p>The dataset had 284,807 transactions with only 492 fraudulent — a 0.172% fraud rate. At this imbalance, naive classifiers predict "not fraud" every time and achieve 99.8% accuracy while catching zero fraud. This is model collapse. The standard fix — SMOTE alone — is insufficient because it creates synthetic samples without cleaning borderline majority-class cases.</p></div>
+  </div>
+  <div class="osec">
+    <div class="ostag">The Approach</div>
+    <div class="ostit">Three-Layer Imbalance Strategy</div>
+    <div class="otxt"><p>Combined three mechanisms simultaneously: <strong>SMOTE-ENN</strong> (oversample rare fraud + edit borderline majority samples), <strong>class weight tuning</strong> (penalize minority misclassification), and <strong>precision-recall threshold optimization</strong> (find the F1-maximizing operating point instead of defaulting to 0.5). The ensemble — XGBoost, LightGBM, CatBoost — was deployed as a containerized FastAPI endpoint with Streamlit frontend.</p></div>
+    <div class="barchart">
+      <div class="brow"><div class="blbl">Recall</div><div class="btrack"><div class="bfill" style="background:var(--g)" data-w="92"></div></div><div class="bval">92%</div></div>
+      <div class="brow"><div class="blbl">Cases Caught</div><div class="btrack"><div class="bfill" style="background:var(--r)" data-w="92"></div></div><div class="bval">453/492</div></div>
+      <div class="brow"><div class="blbl">Loss Prevented</div><div class="btrack"><div class="bfill" style="background:var(--gr)" data-w="85"></div></div><div class="bval">$67,896</div></div>
+    </div>
+  </div>
+  <div class="osec">
+    <div class="ostag">Stack</div><div class="ostit">Built With</div>
+    <div class="tools"><span class="ttag">Python</span><span class="ttag">XGBoost</span><span class="ttag">LightGBM</span><span class="ttag">CatBoost</span><span class="ttag">SMOTE-ENN</span><span class="ttag">ADASYN</span><span class="ttag">Imblearn</span><span class="ttag">Threshold Optimization</span><span class="ttag">FastAPI</span><span class="ttag">Docker</span><span class="ttag">Streamlit</span></div>
+    <div class="olinks"><a href="https://github.com/SarrangTech/creditFraud" class="olink pri" target="_blank">GitHub →</a></div>
+  </div>
+</div>
+</div>
+
+<!-- FEDAUDIT -->
+<div id="ov-fedaudit" class="ov">
+<button class="cbtn" onclick="closeOv()">← Back</button>
+<div class="oh" style="background:linear-gradient(155deg,#001808 0%,#080808 60%)">
+  <div class="otag" style="color:var(--gr)">Explainable AI · Public Sector · Financial Risk · XGBoost · SHAP</div>
+  <div class="oname">FedAuditAI</div>
+  <div class="ohead">Reduced DoD audit triage from 2–3 weeks to under 1 hour on $41.43 trillion in obligations across 24,517 transactions.</div>
+  <div class="omets">
+    <div class="omet"><div class="omn" style="color:var(--gr)">&lt;1hr</div><div class="oml">Triage Time</div></div>
+    <div class="omet"><div class="omn" style="color:var(--g)">$41.43T</div><div class="oml">Obligations Analyzed</div></div>
+    <div class="omet"><div class="omn" style="color:var(--r)">86</div><div class="oml">Leakage Instances Removed</div></div>
+    <div class="omet"><div class="omn" style="color:var(--w)">90%+</div><div class="oml">Accuracy Inflation Caught</div></div>
+  </div>
+</div>
+<div class="obody">
+  <div class="osec">
+    <div class="ostag">The Problem</div>
+    <div class="ostit">The DoD Has a $41 Trillion Audit Problem</div>
+    <div class="otxt"><p>The Department of Defense manages $41.43 trillion across 24,517 transactions, 160+ programs, and 286 spending categories. Manual triage takes 2–3 weeks — auditors can only review a small fraction of accounts. The challenge: build a system trusted in a federal context, which means no data leakage, SHAP-interpretable outputs, and reproducible pipelines.</p></div>
+  </div>
+  <div class="osec">
+    <div class="ostag">Critical Discovery</div>
+    <div class="ostit">86 Target Leakage Instances Caught Before Production</div>
+    <div class="otxt"><p>During feature engineering, 3 financial discrepancy features were computed using the target variable — inflating backtest accuracy by 90%+. A leaked model looks excellent in testing but fails entirely in production. Removed all 86 instances. Rebuilt with <strong>67 clean engineered predictors</strong>. The model's performance is now honest and generalizable.</p></div>
+    <div class="flow">
+      <div class="fstep"><div class="fsn">Discovery</div><div class="fsname">86 Leakage Instances in 3 Features</div></div>
+      <div class="farr">→</div>
+      <div class="fstep"><div class="fsn">Rebuild</div><div class="fsname">67 Clean Features</div></div>
+      <div class="farr">→</div>
+      <div class="fstep"><div class="fsn">Model</div><div class="fsname">XGBoost Risk Scorer</div></div>
+      <div class="farr">→</div>
+      <div class="fstep"><div class="fsn">Explain</div><div class="fsname">SHAP Analysis</div></div>
+      <div class="farr">→</div>
+      <div class="fstep"><div class="fsn">Deploy</div><div class="fsname">6-Tab React Dashboard</div></div>
+    </div>
+  </div>
+  <div class="osec">
+    <div class="ostag">The Dashboard</div>
+    <div class="ostit">200 High-Risk Cases Prioritized in Under 1 Hour</div>
+    <div class="otxt"><p>6-tab React 18 + TypeScript dashboard with 20+ visualizations: anomaly detection, temporal spending patterns, risk score distributions across 286 categories, SHAP global importance. Papa Parse for in-browser CSV ingestion. Deployed live on Vercel.</p></div>
+  </div>
+  <div class="osec">
+    <div class="ostag">Stack</div><div class="ostit">Built With</div>
+    <div class="tools"><span class="ttag">Python</span><span class="ttag">XGBoost</span><span class="ttag">SHAP</span><span class="ttag">Pandas</span><span class="ttag">Scikit-learn</span><span class="ttag">React 18</span><span class="ttag">TypeScript</span><span class="ttag">Recharts</span><span class="ttag">Papa Parse</span><span class="ttag">Tailwind CSS</span><span class="ttag">Vite</span></div>
+    <div class="olinks">
+      <a href="https://github.com/SarrangTech/Audit-risk-assessment-DoD-" class="olink pri" target="_blank">GitHub →</a>
+      <a href="https://dod-audit-risk.vercel.app/" class="olink" target="_blank">Live Dashboard →</a>
+    </div>
+  </div>
+</div>
+</div>
+
+<!-- P2P -->
+<div id="ov-p2p" class="ov">
+<button class="cbtn" onclick="closeOv()">← Back</button>
+<div class="oh" style="background:linear-gradient(155deg,#000818 0%,#080808 60%)">
+  <div class="otag" style="color:var(--b)">Explainable ML · Credit Risk · Springer Published · SCOPUS Indexed</div>
+  <div class="oname">P2P Lending Risk</div>
+  <div class="ohead">95% precision on high-risk borrowers — explainable credit risk framework across 179,235 loans despite 61.6% missing values.</div>
+  <div class="omets">
+    <div class="omet"><div class="omn" style="color:var(--b)">95%</div><div class="oml">Precision (High-Risk)</div></div>
+    <div class="omet"><div class="omn" style="color:var(--g)">179,235</div><div class="oml">Loan Records</div></div>
+    <div class="omet"><div class="omn" style="color:var(--w)">98%</div><div class="oml">Signal Preserved</div></div>
+    <div class="omet"><div class="omn" style="color:var(--gr)">0.03</div><div class="oml">LightGBM RMSE</div></div>
+  </div>
+</div>
+<div class="obody">
+  <div class="osec">
+    <div class="ostag">The Problem</div>
+    <div class="ostit">61.6% Missing Values. Real Lending Money at Stake.</div>
+    <div class="otxt"><p>179,235 Bondora P2P loan records across 8 risk categories (AA to HR) with 61.6% missing values. Standard approaches fail: naive imputation distorts signal, dropping features loses too much information. Lending models must also be explainable — regulators and borrowers need to understand high-risk classifications.</p></div>
+  </div>
+  <div class="osec">
+    <div class="ostag">The Approach</div>
+    <div class="ostit">Tiered Imputation + LightGBM + 3-Layer Explainability</div>
+    <div class="otxt"><p>Designed a <strong>tiered imputation strategy</strong>: drop features above 92% missingness, median/mode impute for moderate gaps, add indicator variables for mid-range gaps so the model learns missingness as a signal. Power transformation for skewed distributions. <strong>98% of signal preserved.</strong></p><p>Chose <strong>LightGBM over XGBoost</strong> on RMSE stability grounds — 0.03 vs 0.30, a 10× improvement. In production lending, stability matters more than peak R². Explainability: EBM (glass-box), SHAP (global), LIME (local per-loan).</p></div>
+    <table class="ctbl">
+      <thead><tr><th>Model</th><th>RMSE</th><th>Decision</th></tr></thead>
+      <tbody>
+        <tr><td>XGBoost</td><td>0.30</td><td>Rejected — too unstable for production lending</td></tr>
+        <tr class="hlrow"><td>LightGBM ✓</td><td>0.03</td><td>Selected — 10× more stable</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <div class="osec">
+    <div class="ostag">Key Finding</div>
+    <div class="ostit">Interest Rate Is the Dominant Default Signal</div>
+    <div class="otxt"><p>SHAP global explanations showed <strong>interest rate as a consistently increasing predictor of default</strong> across all 179,235 records. Borrowers assigned higher rates are systematically more likely to default — an actionable pricing signal invisible from raw data alone.</p></div>
+  </div>
+  <div class="osec">
+    <div class="ostag">Stack</div><div class="ostit">Built With</div>
+    <div class="tools"><span class="ttag">Python</span><span class="ttag">LightGBM</span><span class="ttag">XGBoost</span><span class="ttag">EBM</span><span class="ttag">SHAP</span><span class="ttag">LIME</span><span class="ttag">Interpret</span><span class="ttag">Bayesian Optimization</span><span class="ttag">Pandas</span></div>
+    <div class="olinks">
+      <a href="https://github.com/SarrangTech/p2p" class="olink pri" target="_blank">GitHub →</a>
+      <a href="https://link.springer.com/chapter/10.1007/978-981-96-4691-3_13" class="olink" target="_blank">Springer →</a>
+    </div>
+  </div>
+</div>
+</div>
+
+<!-- NBA BROADCAST -->
+<div id="ov-nba" class="ov">
+<button class="cbtn" onclick="closeOv()">← Back</button>
+<div class="oh" style="background:linear-gradient(155deg,#0c0018 0%,#080808 60%)">
+  <div class="otag" style="color:var(--p)">Integer Programming · Stochastic Optimization · Sports Analytics</div>
+  <div class="oname">NBA Broadcast Optimizer</div>
+  <div class="ohead">474.44 expected broadcast value — binary IP solved across all 256 possible playoff calendars to maximize national TV value under deep scheduling uncertainty.</div>
+  <div class="omets">
+    <div class="omet"><div class="omn" style="color:var(--p)">256</div><div class="oml">Playoff Scenarios</div></div>
+    <div class="omet"><div class="omn" style="color:var(--g)">474.44</div><div class="oml">Expected Obj. Value</div></div>
+    <div class="omet"><div class="omn" style="color:var(--w)">13.75</div><div class="oml">Exp. R1 Broadcasts</div></div>
+    <div class="omet"><div class="omn" style="color:var(--gr)">8.51</div><div class="oml">Exp. R2 Broadcasts</div></div>
+  </div>
+</div>
+<div class="obody">
+  <div class="osec">
+    <div class="ostag">The Problem</div>
+    <div class="ostit">You Have to Schedule Games That Haven't Happened Yet</div>
+    <div class="otxt"><p>National TV slots are pre-committed weeks in advance. But the NBA playoffs are stochastic: each best-of-7 series ends in 4, 5, 6, or 7 games. Round 1 lengths determine Round 2 start dates — which determines which games even exist to broadcast. Standard IP assumes a fixed calendar. This problem required optimizing against all possible calendars simultaneously.</p></div>
+  </div>
+  <div class="osec">
+    <div class="ostag">The Model</div>
+    <div class="ostit">4⁴ = 256 Scenarios × One IP Each</div>
+    <div class="otxt"><p>For each of 256 Round 1 scenarios: build a scenario-specific calendar (adjusting Round 2 starts), generate scarce East broadcast slots, solve a binary IP maximizing weighted game-slot value. Objective weights: <strong>Team Interest</strong> (Nielsen DMA × social following × Google Trends), <strong>Competitiveness</strong> (1/(seed_gap+1)), <strong>Slot Value</strong> (primetime 1.8×), <strong>Game Probability</strong> (G7=30%), <strong>Round Weight</strong>, <strong>Leverage</strong> (elimination games 1.6×). Aggregate expected value across scenarios weighted by probability.</p></div>
+    <div class="flow">
+      <div class="fstep"><div class="fsn">Step 1</div><div class="fsname">256 Scenarios Enumerated</div></div>
+      <div class="farr">→</div>
+      <div class="fstep"><div class="fsn">Step 2</div><div class="fsname">Conditional R2 Calendar</div></div>
+      <div class="farr">→</div>
+      <div class="fstep"><div class="fsn">Step 3</div><div class="fsname">Solve Binary IP (PuLP)</div></div>
+      <div class="farr">→</div>
+      <div class="fstep"><div class="fsn">Step 4</div><div class="fsname">Weight by P(scenario)</div></div>
+      <div class="farr">→</div>
+      <div class="fstep"><div class="fsn">Step 5</div><div class="fsname">Aggregate E[Value]</div></div>
+    </div>
+  </div>
+  <div class="osec">
+    <div class="ostag">Key Finding</div>
+    <div class="ostit">Competitive Series Get 2× More Coverage — Discovered by the Solver</div>
+    <div class="otxt"><p>The optimizer consistently allocated 4–5 expected broadcasts to competitive matchups and only 2 to lopsided ones. This isn't hardcoded — it emerges from the competitiveness term in the objective across all 256 scenarios.</p></div>
+    <table class="ctbl">
+      <thead><tr><th>Series</th><th>Seed Gap</th><th>Expected Broadcasts</th><th>Allocation</th></tr></thead>
+      <tbody>
+        <tr><td>Cavaliers vs Hawks</td><td>4 vs 5 (gap: 1)</td><td>4.92</td><td>5/14</td></tr>
+        <tr><td>Knicks vs Raptors</td><td>3 vs 6 (gap: 3)</td><td>4.66</td><td>5/14</td></tr>
+        <tr><td>Pistons vs Hornets</td><td>1 vs 8 (gap: 7)</td><td>2.11</td><td>2/14</td></tr>
+        <tr><td>Celtics vs 76ers</td><td>2 vs 7 (gap: 5)</td><td>2.05</td><td>2/14</td></tr>
+      </tbody>
+    </table>
+    <div class="insight">The Celtics/76ers result is counterintuitive — despite major-market appeal, a seed gap of 5 suppresses competitiveness enough that the solver consistently deprioritizes them for premium slots across all 256 scenarios. Market size alone doesn't win primetime.<cite>— Model Insight</cite></div>
+  </div>
+  <div class="osec">
+    <div class="ostag">Stack</div><div class="ostit">Built With</div>
+    <div class="tools"><span class="ttag">Python</span><span class="ttag">PuLP</span><span class="ttag">CBC Solver</span><span class="ttag">Binary ILP</span><span class="ttag">Pandas</span><span class="ttag">itertools</span><span class="ttag">Scenario Generation</span></div>
+  </div>
+</div>
+</div>
+
+<!-- KEPLER -->
+<div id="ov-kepler" class="ov">
+<button class="cbtn" onclick="closeOv()">← Back</button>
+<div class="oh" style="background:linear-gradient(155deg,#180808 0%,#080808 60%)">
+  <div class="otag" style="color:var(--r)">Ensemble ML · Astronomy · EDA-Driven Model Selection</div>
+  <div class="oname">Kepler Classifier</div>
+  <div class="ohead">Under 1% false positives — 7% screening efficiency improvement over Random Forest on 9,500 Kepler Objects of Interest.</div>
+  <div class="omets">
+    <div class="omet"><div class="omn" style="color:var(--r)">&lt;1%</div><div class="oml">False Positive Rate</div></div>
+    <div class="omet"><div class="omn" style="color:var(--g)">+7%</div><div class="oml">Over Random Forest</div></div>
+    <div class="omet"><div class="omn" style="color:var(--w)">9,500</div><div class="oml">Kepler Objects</div></div>
+    <div class="omet"><div class="omn" style="color:var(--gr)">49</div><div class="oml">Features</div></div>
+  </div>
+</div>
+<div class="obody">
+  <div class="osec">
+    <div class="ostag">The Problem</div>
+    <div class="ostit">Every False Positive Wastes Telescope Time</div>
+    <div class="otxt"><p>Kepler generated thousands of KOI signals. Each false positive that passes screening costs astronomers expensive observation time on what turns out to be noise. The classification task: distinguish confirmed exoplanets, false positives, and candidates across 9,500 objects and 49 features.</p></div>
+  </div>
+  <div class="osec">
+    <div class="ostag">EDA-Driven Design</div>
+    <div class="ostit">Model Choice Made During Exploratory Analysis</div>
+    <div class="otxt"><p>EDA revealed two structural issues: severe multicollinearity among orbital and stellar features, and high dimensionality at 49 features. Together, these ruled out logistic regression before any model was trained — unstable coefficients would produce unreliable probabilities.</p><p>Baseline Random Forest performed well but had a known boosting weakness at complex decision boundaries. Built a <strong>4-model Voting Classifier</strong> (XGBoost + LightGBM + AdaBoost + RF) that addressed different weakness profiles across each model. Result: &lt;1% false positives and +7% over standalone RF.</p></div>
+    <table class="ctbl">
+      <thead><tr><th>Model</th><th>FP Rate</th><th>vs RF</th><th>Decision</th></tr></thead>
+      <tbody>
+        <tr><td>Logistic Regression</td><td>High</td><td>–</td><td>Ruled out — EDA revealed multicollinearity</td></tr>
+        <tr><td>Random Forest (baseline)</td><td>~8%</td><td>Baseline</td><td>Good but improvable</td></tr>
+        <tr class="hlrow"><td>Voting Classifier (4-model) ✓</td><td>&lt;1%</td><td>+7%</td><td>Selected</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <div class="osec">
+    <div class="ostag">Stack</div><div class="ostit">Built With</div>
+    <div class="tools"><span class="ttag">Python</span><span class="ttag">Scikit-learn</span><span class="ttag">XGBoost</span><span class="ttag">LightGBM</span><span class="ttag">AdaBoost</span><span class="ttag">Voting Classifier</span><span class="ttag">GridSearchCV</span></div>
+    <div class="olinks"><a href="https://github.com/SarrangTech/Kepler" class="olink pri" target="_blank">GitHub →</a></div>
+  </div>
+</div>
+</div>
+
+<!-- ════════════════════ BUSINESS MODELING OVERLAYS ════════════════════ -->
+
+<!-- HARBOR LOGISTICS -->
+<div id="ov-harbor" class="ov">
+<button class="cbtn" onclick="closeOv()">← Back</button>
+<div class="oh" style="background:linear-gradient(155deg,#0f1a00 0%,#080808 60%)">
+  <div class="otag" style="color:var(--o)">Linear Programming · Warehouse Design · Sensitivity Analysis</div>
+  <div class="oname">Harbor Logistics DC</div>
+  <div class="ohead">$5,701,950 optimal annual profit — LP space allocation across 6 warehouse zones with shadow price-driven expansion analysis.</div>
+  <div class="omets">
+    <div class="omet"><div class="omn" style="color:var(--o)">$5.70M</div><div class="oml">Optimal Annual Profit</div></div>
+    <div class="omet"><div class="omn" style="color:var(--g)">$1.23M</div><div class="oml">Expansion Upside (20K sqft)</div></div>
+    <div class="omet"><div class="omn" style="color:var(--w)">120,000</div><div class="oml">Sq Ft Facility</div></div>
+    <div class="omet"><div class="omn" style="color:var(--gr)">6</div><div class="oml">Operational Zones</div></div>
+  </div>
+</div>
+<div class="obody">
+  <div class="osec">
+    <div class="ostag">The Business Problem</div>
+    <div class="ostit">Harbor Logistics Needs to Allocate 120,000 Sq Ft for Maximum Profit</div>
+    <div class="otxt">
+      <p>Harbor Logistics is planning a new distribution center with 120,000 sq ft across 6 zones: Receiving &amp; Inspection, Short-Term Storage, Long-Term Storage, Order Picking &amp; Packing, Value-Added Services, and Office Space. Each zone has a different profit per square foot. Staging areas (25% of Receiving) and aisle space (30% of Long-Term Storage) consume area without generating revenue.</p>
+      <p>The goal: determine the exact square footage for each zone to maximize annual profit while satisfying 7 operational constraints — minimum space requirements, storage ratios, VAS/Picking relationships, and equipment limits.</p>
+    </div>
+  </div>
+  <div class="osec">
+    <div class="ostag">The LP Formulation</div>
+    <div class="ostit">Decision Variables, Constraints, and Objective</div>
+    <div class="otxt"><p><strong>Objective:</strong> Maximize 22R + 58S + 38L + 75P + 92V (profit per sq ft × allocation)</p><p><strong>Key constraints:</strong></p></div>
+    <ul class="clist">
+      <li class="active"><strong>Receiving ≥ 15,000 sqft</strong> — peak inbound shipment handling</li>
+      <li class="active"><strong>Office ≥ 8,000 sqft</strong> — administrative staff requirement</li>
+      <li><strong>Short-Term + Long-Term ≥ 50% of total area</strong> — inventory capacity</li>
+      <li><strong>Long-Term ≥ 30% of total storage</strong> — slower-moving items</li>
+      <li><strong>VAS ≥ 30% of Picking area</strong> — kitting/labeling requirement</li>
+      <li><strong>VAS ≤ 8% of total facility</strong> — specialized equipment cap</li>
+      <li><strong>1.25R + S + 1.3L + P + V + O ≤ 120,000</strong> — total area including staging/aisles</li>
+    </ul>
+  </div>
+  <div class="osec">
+    <div class="ostag">Optimal Solution</div>
+    <div class="ostit">Zone Allocation at $5,701,950 Profit</div>
+    <table class="ctbl">
+      <thead><tr><th>Zone</th><th>Allocation (sqft)</th><th>Annual Profit</th><th>Profit/sqft</th></tr></thead>
+      <tbody>
+        <tr><td>Receiving &amp; Inspection</td><td>15,000</td><td>$330,000</td><td>$22</td></tr>
+        <tr><td>Short-Term Storage</td><td>42,000</td><td>$2,436,000</td><td>$58</td></tr>
+        <tr><td>Long-Term Storage</td><td>18,000</td><td>$684,000</td><td>$38</td></tr>
+        <tr><td>Order Picking &amp; Packing</td><td>18,250</td><td>$1,368,750</td><td>$75</td></tr>
+        <tr class="hlrow"><td>Value-Added Services</td><td>9,600</td><td>$883,200</td><td>$92 (highest)</td></tr>
+        <tr><td>Office Space</td><td>8,000</td><td>$0</td><td>$0</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <div class="osec">
+    <div class="ostag">Sensitivity Analysis</div>
+    <div class="ostit">Three Strategic Decisions Answered Without Re-Solving</div>
+    <div class="otxt">
+      <p><strong>Capacity Expansion:</strong> Shadow price on total area = $61.49/sqft. Expanding from 120K to 140K sq ft (within allowable range) adds 20,000 × $61.49 = <strong>$1,229,700 in additional annual profit</strong>. No need to re-solve — the sensitivity report answers this directly.</p>
+      <p><strong>Picking Automation Investment:</strong> The allowable increase on the Picking coefficient is $17 — meaning Picking profit can rise from $75 to $92/sqft before the optimal zone allocation changes. <strong>If automation pushes beyond $92/sqft, the model will reallocate space to Picking.</strong></p>
+      <p><strong>Receiving Efficiency Upgrade:</strong> Shadow price on Receiving minimum = −$71.75. Management's proposal to lower the minimum from 15,000 to 12,000 sqft (within allowable decrease of 11,000 sqft) increases profit by 3,000 × $71.75 = <strong>$215,250</strong>.</p>
+    </div>
+    <div class="insight">The VAS/Picking ratio constraint has a shadow price of zero — the current optimal solution already has VAS at 9,600 sqft vs the 5,475 minimum required. Relaxing it from 30% to 25% changes nothing. The sensitivity report proves this without re-solving.<cite>— Sensitivity Analysis Finding</cite></div>
+  </div>
+  <div class="osec">
+    <div class="ostag">Stack</div><div class="ostit">Built With</div>
+    <div class="tools"><span class="ttag">Linear Programming</span><span class="ttag">Excel Solver</span><span class="ttag">Simplex LP</span><span class="ttag">Sensitivity Analysis</span><span class="ttag">Shadow Prices</span><span class="ttag">Allowable Ranges</span></div>
+  </div>
+</div>
+</div>
+
+<!-- MIDATLANTIC POWER -->
+<div id="ov-midatlantic" class="ov">
+<button class="cbtn" onclick="closeOv()">← Back</button>
+<div class="oh" style="background:linear-gradient(155deg,#001a10 0%,#080808 60%)">
+  <div class="otag" style="color:var(--gr)">Linear Programming · Energy Mix · Environmental Policy · Python PuLP</div>
+  <div class="oname">MidAtlantic Power</div>
+  <div class="ohead">$1,798,000/week minimum operating cost — optimal generation mix across 5 energy sources under CO₂ caps and renewable portfolio standards.</div>
+  <div class="omets">
+    <div class="omet"><div class="omn" style="color:var(--gr)">$1.798M</div><div class="oml">Min Weekly Cost</div></div>
+    <div class="omet"><div class="omn" style="color:var(--g)">$52</div><div class="oml">CO₂ Shadow Price/Ton</div></div>
+    <div class="omet"><div class="omn" style="color:var(--w)">$104K</div><div class="oml">Cost of Tighter Regs</div></div>
+    <div class="omet"><div class="omn" style="color:var(--r)">50,000</div><div class="oml">MWh Weekly Demand</div></div>
+  </div>
+</div>
+<div class="obody">
+  <div class="osec">
+    <div class="ostag">The Business Problem</div>
+    <div class="ostit">MidAtlantic Power Must Meet Demand While Minimizing Cost and Emissions</div>
+    <div class="otxt"><p>MidAtlantic Power operates coal, natural gas, nuclear, wind, and solar generation. Must meet 50,000 MWh weekly demand while complying with CO₂ limits (23,000 tons/week), renewable portfolio standards (≥20% from wind/solar), grid reliability requirements (≥65% from dispatchable baseload), nuclear minimum operations (6,000 MWh), and natural gas rapid-response minimums (≥12% of total).</p></div>
+  </div>
+  <div class="osec">
+    <div class="ostag">LP Formulation</div>
+    <div class="ostit">Minimize: 32C + 58G + 42N + 12W + 15S</div>
+    <div class="otxt"><p>Decision variables: MWh generated from each source. 11 constraints capturing demand, CO₂, renewable standards, grid reliability, safety minimums, and capacity limits. Solved in Python using PuLP with CBC solver. Shadow prices extracted from dual values.</p></div>
+    <table class="ctbl">
+      <thead><tr><th>Source</th><th>Cost/MWh</th><th>CO₂ (tons/MWh)</th><th>Optimal Output</th><th>% of Total</th></tr></thead>
+      <tbody>
+        <tr><td>Coal</td><td>$32</td><td>0.95</td><td>19,000 MWh</td><td>38%</td></tr>
+        <tr><td>Natural Gas</td><td>$58</td><td>0.45</td><td>11,000 MWh</td><td>22%</td></tr>
+        <tr><td>Nuclear</td><td>$42</td><td>0.00</td><td>10,000 MWh (max)</td><td>20%</td></tr>
+        <tr class="hlrow"><td>Wind ✓</td><td>$12</td><td>0.00</td><td>6,000 MWh (max)</td><td>12%</td></tr>
+        <tr class="hlrow"><td>Solar ✓</td><td>$15</td><td>0.00</td><td>4,000 MWh (max)</td><td>8%</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <div class="osec">
+    <div class="ostag">Key Insight</div>
+    <div class="ostit">CO₂ Regulations Force $104K/Week Cost Tradeoff</div>
+    <div class="otxt">
+      <p>Wind, solar, and nuclear all run at maximum capacity — the solver pushes clean energy to its physical limits. Coal and gas remain high despite being cost-competitive because CO₂ limits cap their output. The CO₂ constraint shadow price is <strong>−$52/ton</strong>.</p>
+      <p>A proposed regulatory tightening from 23,000 to 21,000 tons/week (a 2,000-ton reduction) would increase weekly operating costs by 2,000 × $52 = <strong>$104,000/week</strong>. This estimate holds because the allowable decrease on the CO₂ constraint is 7,000 tons — the 2,000-ton change stays within the valid range for shadow price application.</p>
+      <p>Shadow prices on nuclear, wind, and solar capacity limits are all negative — each MWh of additional clean capacity added would reduce costs. <strong>The binding constraint isn't the company's willingness to use clean energy — it's the physical supply ceiling.</strong></p>
+    </div>
+    <div class="insight">Nuclear shadow price: −$39.40/MWh. Wind: −$69.40/MWh. Solar: −$66.40/MWh. These are the investment signals: wind expansion has the highest cost-reduction potential per incremental MWh of capacity added.<cite>— Shadow Price Analysis</cite></div>
+  </div>
+  <div class="osec">
+    <div class="ostag">Stack</div><div class="ostit">Built With</div>
+    <div class="tools"><span class="ttag">Python</span><span class="ttag">PuLP</span><span class="ttag">scipy.optimize</span><span class="ttag">CBC Solver</span><span class="ttag">LP</span><span class="ttag">Dual Values</span><span class="ttag">Shadow Prices</span></div>
+  </div>
+</div>
+</div>
+
+<!-- ROUGIR COSMETICS -->
+<div id="ov-rougir" class="ov">
+<button class="cbtn" onclick="closeOv()">← Back</button>
+<div class="oh" style="background:linear-gradient(155deg,#1a0018 0%,#080808 60%)">
+  <div class="otag" style="color:var(--p)">LP · Make vs Outsource · Manufacturing · Capacity Planning</div>
+  <div class="oname">Rougir Cosmetics</div>
+  <div class="ohead">$584,473 optimal production cost — LP determines shift allocation for face cream, body cream, and hand cream when internal capacity is insufficient to meet demand.</div>
+  <div class="omets">
+    <div class="omet"><div class="omn" style="color:var(--p)">$584,473</div><div class="oml">Optimal Production Cost</div></div>
+    <div class="omet"><div class="omn" style="color:var(--g)">6,000</div><div class="oml">Cartons per Product</div></div>
+    <div class="omet"><div class="omn" style="color:var(--w)">2</div><div class="oml">Labor Shifts Modeled</div></div>
+    <div class="omet"><div class="omn" style="color:var(--r)">4</div><div class="oml">Raw Material Constraints</div></div>
+  </div>
+</div>
+<div class="obody">
+  <div class="osec">
+    <div class="ostag">The Business Problem</div>
+    <div class="ostit">RCI Can't Meet Demand Internally — When and How Much to Outsource?</div>
+    <div class="otxt">
+      <p>Rougir Cosmetics International needs to produce 12,000 face cream, 8,000 body cream, and 18,000 hand cream cartons next quarter. Stage 1 alone requires 50,400 labor-hours but only 28,500 are available — RCI is 77% over capacity. Hand cream must be produced in-house due to its proprietary formula. Face and body cream can be outsourced to a local supplier (face: $40/carton, body: $55/carton) who signed a secrecy agreement.</p>
+      <p>The LP for the 6,000-carton simplified version determines the optimal Shift 1 vs Shift 2 allocation for each product given Stage 1/Stage 2 capacity constraints and four raw material limits.</p>
+    </div>
+  </div>
+  <div class="osec">
+    <div class="ostag">Cost Derivation</div>
+    <div class="ostit">Per-Unit Costs Built From First Principles</div>
+    <div class="otxt"><p>Per-carton costs were derived from raw material inputs × unit prices plus labor hours × shift wage rates. Shift 2 carries a 10% wage premium and 10% capacity reduction over Shift 1.</p></div>
+    <table class="ctbl">
+      <thead><tr><th>Product</th><th>Shift 1 Cost</th><th>Shift 2 Cost</th><th>Material Cost</th><th>Labor (S1)</th></tr></thead>
+      <tbody>
+        <tr><td>Face Cream</td><td>$32.15</td><td>$34.17</td><td>$12.00</td><td>$20.15</td></tr>
+        <tr><td>Body Cream</td><td>$37.35</td><td>$39.81</td><td>$12.80</td><td>$24.55</td></tr>
+        <tr class="hlrow"><td>Hand Cream (in-house only)</td><td>$25.53</td><td>$26.84</td><td>$12.40</td><td>$13.13</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <div class="osec">
+    <div class="ostag">LP Formulation &amp; Solution</div>
+    <div class="ostit">Minimize Total Cost Across 6 Decision Variables</div>
+    <div class="otxt"><p><strong>Decision variables:</strong> F1, F2, B1, B2, H1, H2 (cartons per shift per product). <strong>Objective:</strong> Minimize 32.15F1 + 34.17F2 + 37.35B1 + 39.81B2 + 25.53H1 + 26.84H2. Constraints: demand equality for each product, Stage 1/2 capacity per shift, and 4 raw material limits (water, oil, scents, emulsifiers).</p></div>
+    <table class="ctbl">
+      <thead><tr><th>Product</th><th>Shift 1</th><th>Shift 2</th><th>Why?</th></tr></thead>
+      <tbody>
+        <tr><td>Face Cream</td><td>2,800</td><td>3,200</td><td>Split across shifts — labor capacity binding</td></tr>
+        <tr><td>Body Cream</td><td>6,000</td><td>0</td><td>All in cheaper Shift 1 — capacity allows it</td></tr>
+        <tr class="hlrow"><td>Hand Cream</td><td>0</td><td>6,000</td><td>In-house only, overflows to Shift 2</td></tr>
+      </tbody>
+    </table>
+    <div class="insight">The solver never chose Shift 2 for body cream because Shift 1 had sufficient remaining capacity after face cream was allocated. The LP naturally finds that cheaper labor should be used to capacity before triggering the premium shift.<cite>— Optimal Solution Interpretation</cite></div>
+  </div>
+  <div class="osec">
+    <div class="ostag">Stack</div><div class="ostit">Built With</div>
+    <div class="tools"><span class="ttag">Linear Programming</span><span class="ttag">Excel Solver</span><span class="ttag">Simplex LP</span><span class="ttag">Make vs Buy Analysis</span><span class="ttag">Cost Derivation</span></div>
+  </div>
+</div>
+</div>
+
+<!-- DHL -->
+<div id="ov-dhl" class="ov">
+<button class="cbtn" onclick="closeOv()">← Back</button>
+<div class="oh" style="background:linear-gradient(155deg,#00081a 0%,#080808 60%)">
+  <div class="otag" style="color:var(--b)">Transportation Network · Consolidation · Risk-Adjusted Optimization</div>
+  <div class="oname">DHL Global Forwarding</div>
+  <div class="ohead">Hit the >1,000kg pricing tier (₹90 vs ₹130/kg) — road-routing consolidation across 3 Indian cities cuts freight costs while managing 2% delay risk.</div>
+  <div class="omets">
+    <div class="omet"><div class="omn" style="color:var(--b)">₹4.13M</div><div class="oml">Weekly Shipping Cost</div></div>
+    <div class="omet"><div class="omn" style="color:var(--g)">₹90/kg</div><div class="oml">Achieved Rate Tier</div></div>
+    <div class="omet"><div class="omn" style="color:var(--w)">3</div><div class="oml">Indian Cities Optimized</div></div>
+    <div class="omet"><div class="omn" style="color:var(--r)">2%</div><div class="oml">Delay Probability Modeled</div></div>
+  </div>
+</div>
+<div class="obody">
+  <div class="osec">
+    <div class="ostag">The Business Problem</div>
+    <div class="ostit">DGF Is Overpaying Because Shipments Don't Consolidate Well</div>
+    <div class="otxt">
+      <p>DHL Global Forwarding consolidates shipments from 13 clients across Hyderabad, Bengaluru, and Chennai, shipping to Frankfurt daily (Tuesday, Thursday, Saturday). Airlines charge tiered rates: ≤100kg costs ₹130/kg; &gt;1,000kg costs only ₹90/kg with Qatar Airways. On certain days, shipments accumulate at one city — preventing the company from reaching the cheaper tiers at that location.</p>
+      <p>The question: can road-routing shipments overnight between cities (at ₹4–9/kg) allow DGF to consolidate into larger batches at cities with more frequent cheap-carrier slots — achieving the ₹90/kg tier more consistently?</p>
+    </div>
+  </div>
+  <div class="osec">
+    <div class="ostag">The Analysis</div>
+    <div class="ostit">City-Level Consolidation Weights and Pricing Tiers</div>
+    <table class="ctbl">
+      <thead><tr><th>City</th><th>Daily Weight</th><th>Shipment Day</th><th>Best Rate</th><th>Best Airline</th></tr></thead>
+      <tbody>
+        <tr><td>Hyderabad</td><td>2,800 kg</td><td>Tue/Thu/Sat</td><td>₹100/kg</td><td>Emirates</td></tr>
+        <tr><td>Bengaluru</td><td>2,500 kg</td><td>Tue/Thu/Sat</td><td>₹90/kg</td><td>Qatar Airways</td></tr>
+        <tr class="hlrow"><td>Chennai</td><td>3,500 kg</td><td>Tue/Thu/Sat</td><td>₹90/kg</td><td>Qatar Airways</td></tr>
+      </tbody>
+    </table>
+    <div class="otxt"><p>All three consolidated city shipments exceed 1,000 kg — hitting the lowest pricing tier. The road-routing question becomes: can moving Hyderabad's shipments (at ₹9/kg) to Bengaluru or Chennai unlock a better airline slot on days when Emirates isn't available, saving more than the road cost?</p></div>
+  </div>
+  <div class="osec">
+    <div class="ostag">Risk Modeling</div>
+    <div class="ostit">Expected Cost Formula With 2% Delay Probability</div>
+    <div class="otxt">
+      <p>Road transportation introduces delay risk: traffic congestion or accidents occur ~2% of the time. When delays happen, DGF pays a penalty equal to the full shipping cost of the delayed consignment.</p>
+      <p><strong>Expected Cost = (Air freight + Road transport) + (0.02 × Shipping cost)</strong></p>
+      <p>This risk-adjusted framework identifies consolidation routes that remain profitable even under uncertainty — not just in the base case. Sensitivity analysis on the delay probability identifies the breakeven point at which road-routing stops being cost-effective.</p>
+    </div>
+    <div class="insight">The industry norm is a 5-day maximum transit time from origin to destination airport. Road routing between Indian cities (overnight, ~12 hours) fits well within this window — the transit constraint is non-binding.<cite>— Constraint Analysis</cite></div>
+  </div>
+  <div class="osec">
+    <div class="ostag">Competitive Advantage Analysis</div>
+    <div class="ostit">DGF's Edge Isn't the Rates — It's the Network Design</div>
+    <div class="otxt"><p>Airline cargo rates are essentially commoditized across forwarders. DGF's advantage comes from two things: (1) intelligently routing shipments to leverage road cost differentials between cities (Bengaluru→Chennai: ₹4/kg vs Hyderabad→Bengaluru: ₹8/kg), and (2) timing consolidation to match high-frequency low-cost airline slots. Competitors with less sophisticated routing algorithms pay the same rates but miss the consolidation opportunities.</p></div>
+  </div>
+  <div class="osec">
+    <div class="ostag">Stack</div><div class="ostit">Built With</div>
+    <div class="tools"><span class="ttag">Transportation Network Analysis</span><span class="ttag">Excel</span><span class="ttag">Expected Value Modeling</span><span class="ttag">Sensitivity Analysis</span><span class="ttag">Risk-Adjusted Costing</span></div>
+  </div>
+</div>
+</div>
+
+<!-- TOURNAMENT SCHEDULING -->
+<div id="ov-tournament" class="ov">
+<button class="cbtn" onclick="closeOv()">← Back</button>
+<div class="oh" style="background:linear-gradient(155deg,#1a0000 0%,#080808 60%)">
+  <div class="otag" style="color:var(--r)">Integer Programming · Greedy Heuristic · Algorithm Comparison</div>
+  <div class="oname">Tournament Scheduling</div>
+  <div class="ohead">IP optimal: 155.5 vs greedy: 148.5 — rigorous 4.5% gap analysis with two-pass heuristic design for 6-team basketball scheduling.</div>
+  <div class="omets">
+    <div class="omet"><div class="omn" style="color:var(--gr)">155.5</div><div class="oml">IP Optimal Value</div></div>
+    <div class="omet"><div class="omn" style="color:var(--g)">148.5</div><div class="oml">Greedy Value</div></div>
+    <div class="omet"><div class="omn" style="color:var(--r)">4.5%</div><div class="oml">Optimality Gap</div></div>
+    <div class="omet"><div class="omn" style="color:var(--w)">90</div><div class="oml">Binary Decision Variables</div></div>
+  </div>
+</div>
+<div class="obody">
+  <div class="osec">
+    <div class="ostag">The Problem</div>
+    <div class="ostit">Schedule a 6-Team Tournament to Maximize Spectator Value</div>
+    <div class="otxt">
+      <p>6 teams (Eagles, Hawks, Falcons, Pelicans, Ravens, Condors), 2 courts, 6 time slots (9AM–7PM), 9 total games. Each team plays exactly 3 games. No rematches. At least 1 game per slot. At most 2 games per slot. Game value = (Time Slot Value × Competitiveness) + Average Fan Interest.</p>
+      <p>Time slot values range from 1 (9AM) to 8 (7PM). Competitiveness: 3 pts if rank difference ≤2, 2 pts if difference = 3, 1 pt otherwise.</p>
+    </div>
+  </div>
+  <div class="osec">
+    <div class="ostag">Binary IP Formulation</div>
+    <div class="ostit">15 Matchups × 6 Slots = 90 Binary Variables</div>
+    <div class="otxt">
+      <p>Decision variable x(i,t) = 1 if matchup i is scheduled in slot t. With 15 possible matchups and 6 time slots, there are 90 binary variables. Objective: maximize ΣΣ [(S_t × C_i) + F_i] · x_it. Constraints: slot capacity ≤2, each team plays exactly 3 games, each matchup at most once, at least one game per slot, no team in two games simultaneously.</p>
+    </div>
+    <table class="ctbl">
+      <thead><tr><th>Slot</th><th>IP Schedule</th><th>Greedy Schedule</th></tr></thead>
+      <tbody>
+        <tr><td>7PM (value 8)</td><td>Eagles vs Hawks + Falcons vs Pelicans</td><td>Eagles vs Hawks + Falcons vs Pelicans</td></tr>
+        <tr><td>5PM (value 6)</td><td>Eagles vs Falcons + Cavaliers vs Hawks</td><td>Eagles vs Falcons + Ravens vs Condors</td></tr>
+        <tr><td>3PM (value 4)</td><td>Hawks vs Falcons + ...</td><td>Hawks vs Pelicans + Eagles vs Condors</td></tr>
+        <tr><td>9AM (value 1)</td><td>Pelicans vs Condors</td><td>Hawks vs Ravens</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <div class="osec">
+    <div class="ostag">Greedy Innovation</div>
+    <div class="ostit">Two-Pass Algorithm to Guarantee All Slots Filled</div>
+    <div class="otxt">
+      <p>The naive greedy approach — fill best matchups into highest-value slots first — violates the "at least one game per slot" constraint because it exhausts all teams before reaching the 9AM slot. The solution: a <strong>two-pass algorithm</strong>.</p>
+      <p><strong>Pass 1:</strong> For each slot (7PM → 9AM), select one game that prioritizes teams with the fewest games scheduled so far, ensuring every slot gets at least one game. <strong>Pass 2:</strong> Fill remaining slot capacity greedily by highest spectator value.</p>
+      <p>This design guaranteed constraint satisfaction while recovering 148.5 out of the 155.5 IP optimal — a 95.5% approximation ratio.</p>
+    </div>
+    <div class="insight">The greedy gap isn't a failure — it's the expected cost of computational simplicity. The IP solver considers the full joint scheduling space; the greedy algorithm makes locally optimal decisions without global lookahead. A 4.5% gap is competitive for a heuristic with this level of constraint complexity.<cite>— Algorithm Comparison</cite></div>
+  </div>
+  <div class="osec">
+    <div class="ostag">Stack</div><div class="ostit">Built With</div>
+    <div class="tools"><span class="ttag">Python</span><span class="ttag">PuLP</span><span class="ttag">Binary ILP</span><span class="ttag">CBC Solver</span><span class="ttag">Greedy Heuristic</span><span class="ttag">itertools</span><span class="ttag">Constraint Programming</span></div>
+  </div>
+</div>
+</div>
+
+<!-- MONTE CARLO / NETSCAPE -->
+<div id="ov-montecarlo" class="ov">
+<button class="cbtn" onclick="closeOv()">← Back</button>
+<div class="oh" style="background:linear-gradient(155deg,#0a1a00 0%,#080808 60%)">
+  <div class="otag" style="color:var(--g)">Monte Carlo Simulation · DCF Valuation · Stochastic Modeling</div>
+  <div class="oname">Netscape IPO Simulation</div>
+  <div class="ohead">Was the $28/share IPO justified? Stochastic DCF modeling across 8 uncertain parameters quantified the true distribution of Netscape's 1995 value.</div>
+  <div class="omets">
+    <div class="omet"><div class="omn" style="color:var(--g)">$27.82</div><div class="oml">Deterministic Price/Share</div></div>
+    <div class="omet"><div class="omn" style="color:var(--w)">$1.057B</div><div class="oml">Total NPV (Base Case)</div></div>
+    <div class="omet"><div class="omn" style="color:var(--r)">8</div><div class="oml">Stochastic Parameters</div></div>
+    <div class="omet"><div class="omn" style="color:var(--gr)">500+</div><div class="oml">Simulation Runs</div></div>
+  </div>
+</div>
+<div class="obody">
+  <div class="osec">
+    <div class="ostag">The Business Problem</div>
+    <div class="ostit">Morgan Stanley &amp; H&amp;Q Needed to Price Netscape's August 1995 IPO</div>
+    <div class="otxt">
+      <p>Netscape Communications' revenues had doubled every quarter in 1995, reaching $33.25M. The underwriters (Morgan Stanley and Hambrecht &amp; Quist) used a DCF model splitting the future into a 10-year forecast period (1995–2005) and a terminal value using the perpetuity growth model. Their deterministic calculation justified $28/share on $38M shares outstanding.</p>
+      <p>The question this analysis asks: <strong>how much uncertainty surrounds that $28 figure?</strong> If key assumptions vary — revenue growth, R&amp;D intensity, discount rate, terminal growth — what's the actual distribution of price per share, and was the $28 offering price justified?</p>
+    </div>
+  </div>
+  <div class="osec">
+    <div class="ostag">Stochastic Parameters</div>
+    <div class="ostit">8 Uncertain Inputs, Each with Its Own Distribution</div>
+    <table class="ctbl">
+      <thead><tr><th>Parameter</th><th>Distribution</th><th>Range / Parameters</th></tr></thead>
+      <tbody>
+        <tr><td>Revenue Growth Rate</td><td>Normal</td><td>μ=65%, σ=5%</td></tr>
+        <tr><td>R&amp;D Expenses (% revenue)</td><td>Triangular</td><td>min=32%, mode=36.76%, max=42%</td></tr>
+        <tr><td>Market Risk Premium</td><td>Uniform</td><td>5% to 10%</td></tr>
+        <tr><td>Risk-Free Rate</td><td>Triangular</td><td>min=6%, mode=6.71%, max=7.5%</td></tr>
+        <tr><td>TV Growth Rate</td><td>Discrete Uniform</td><td>1%, 2%, ..., 10% (equal probability)</td></tr>
+        <tr><td>Capital Expenditures</td><td>Uniform</td><td>±1 pp from base schedule</td></tr>
+        <tr><td>Other Operating Expenses</td><td>Uniform</td><td>±1 pp from base schedule</td></tr>
+        <tr><td>Depreciation</td><td>Uniform</td><td>4.5% to 6.5% of revenues</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <div class="osec">
+    <div class="ostag">The Model</div>
+    <div class="ostit">FCF → NPV → Price Per Share, Repeated Stochastically</div>
+    <div class="otxt">
+      <p>For each simulation run: sample all 8 parameters from their distributions → project revenues (1995–2005) using sampled growth rate → compute FCF each year (net profit + depreciation − capex) → calculate terminal value using perpetuity growth model → discount all flows to NPV → divide by 38M shares for price/share.</p>
+      <p>The deterministic base case yields $27.82/share — nearly exactly the $28 IPO price. The Monte Carlo simulation reveals how sensitive this number is to the joint uncertainty across all 8 parameters. Key question: what fraction of simulated scenarios produce price/share ≥ $28?</p>
+    </div>
+    <div class="flow">
+      <div class="fstep"><div class="fsn">Step 1</div><div class="fsname">Sample 8 Parameters</div></div>
+      <div class="farr">→</div>
+      <div class="fstep"><div class="fsn">Step 2</div><div class="fsname">Project Revenues 1995–2005</div></div>
+      <div class="farr">→</div>
+      <div class="fstep"><div class="fsn">Step 3</div><div class="fsname">Compute FCF per Year</div></div>
+      <div class="farr">→</div>
+      <div class="fstep"><div class="fsn">Step 4</div><div class="fsname">Terminal Value (Perpetuity)</div></div>
+      <div class="farr">→</div>
+      <div class="fstep"><div class="fsn">Step 5</div><div class="fsname">NPV / 38M Shares</div></div>
+    </div>
+    <div class="insight">The TV/NPV ratio in the base case is 0.77 — 77% of Netscape's value comes from cash flows after 2005. This makes the price/share distribution extremely sensitive to the terminal growth rate assumption, which is modeled as discrete uniform across 1–10%. A 3% shift in terminal growth can swing the price per share by $10+.<cite>— Simulation Sensitivity Finding</cite></div>
+  </div>
+  <div class="osec">
+    <div class="ostag">Stack</div><div class="ostit">Built With</div>
+    <div class="tools"><span class="ttag">Python</span><span class="ttag">NumPy</span><span class="ttag">Monte Carlo Simulation</span><span class="ttag">DCF Modeling</span><span class="ttag">Perpetuity Growth Model</span><span class="ttag">Stochastic Distributions</span><span class="ttag">Excel</span></div>
+  </div>
+</div>
+</div>
+
+<script>
+function openOv(id){
+  document.getElementById('mv').style.display='none';
+  var ov=document.getElementById('ov-'+id);
+  ov.classList.add('on');
+  ov.scrollTop=0;
+  window.scrollTo(0,0);
+  setTimeout(function(){
+    ov.querySelectorAll('.bfill').forEach(function(b){
+      b.style.width=(b.dataset.w||0)+'%';
+    });
+  },500);
+}
+function closeOv(){
+  document.querySelectorAll('.ov').forEach(function(o){o.classList.remove('on')});
+  document.getElementById('mv').style.display='block';
+  window.scrollTo(0,0);
+}
+document.addEventListener('keydown',function(e){if(e.key==='Escape')closeOv()});
+</script>
+</body>
+</html>
