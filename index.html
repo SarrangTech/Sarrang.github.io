@@ -199,6 +199,23 @@ footer p{font-family:'DM Mono',monospace;font-size:10px;letter-spacing:.1em;colo
 .insight{background:var(--m);border-left:4px solid var(--g);padding:20px 24px;margin:20px 0;font-size:14px;color:var(--w);line-height:1.7}
 .insight cite{display:block;margin-top:8px;font-family:'DM Mono',monospace;font-size:10px;letter-spacing:.1em;text-transform:uppercase;color:var(--mu);font-style:normal}
 
+/* iframe preview */
+.iframewin{border-radius:10px;overflow:hidden;border:1px solid var(--bd);margin-bottom:1.6rem}
+.iframebar{background:#111;padding:.55rem 1rem;display:flex;align-items:center;gap:.8rem;border-bottom:1px solid var(--bd)}
+.iframedots{display:flex;gap:.45rem}
+.iframedots span{width:11px;height:11px;border-radius:50%}
+.iframedots span:nth-child(1){background:#e8401c}
+.iframedots span:nth-child(2){background:#f0b429}
+.iframedots span:nth-child(3){background:#1db954}
+.iframeurl{font-family:'DM Mono',monospace;font-size:10px;color:#444;flex:1;text-overflow:ellipsis;overflow:hidden;white-space:nowrap}
+.iframefull{font-family:'DM Mono',monospace;font-size:10px;letter-spacing:.1em;text-transform:uppercase;color:#666;text-decoration:none;white-space:nowrap;flex-shrink:0}
+.iframefull:hover{color:var(--w)}
+.iframewin iframe{width:100%;height:540px;border:none;display:block;background:#0a0a0a}
+.iframefooter{background:#111;padding:.7rem 1rem;border-top:1px solid var(--bd);display:flex;align-items:center;justify-content:space-between}
+.iframefooter span{font-family:'DM Mono',monospace;font-size:9px;letter-spacing:.12em;text-transform:uppercase;color:#444}
+.iframefooter a{font-family:'DM Mono',monospace;font-size:10px;letter-spacing:.1em;text-transform:uppercase;color:var(--w);text-decoration:none;padding:6px 14px;border:1px solid var(--bd)}
+.iframefooter a:hover{background:var(--w);color:var(--k)}
+
 @media(max-width:900px){
   .hero{grid-template-columns:1fr}.hl{border-right:none;padding:48px 28px}.hr2{display:none}
   .sh{grid-template-columns:1fr}.snum{display:none}.stit{padding:16px 24px}
@@ -211,6 +228,7 @@ footer p{font-family:'DM Mono',monospace;font-size:10px;letter-spacing:.1em;colo
   .oh{padding:80px 28px 44px}.obody{padding:0 28px 56px}
   .omets{flex-direction:column}.omet{border-right:none;border-bottom:1px solid var(--bd)}
   .rgrid{grid-template-columns:1fr 1fr}
+  .iframewin iframe{height:320px}
 }
 </style>
 </head>
@@ -622,10 +640,21 @@ footer p{font-family:'DM Mono',monospace;font-size:10px;letter-spacing:.1em;colo
 </div>
 <div class="obody">
 
-  <div class="osec" style="background:rgba(29,185,84,0.07);border:1px solid rgba(29,185,84,0.25);border-radius:10px;padding:1.4rem 1.6rem;margin-bottom:1.6rem">
-    <div style="font-size:.75rem;letter-spacing:.12em;text-transform:uppercase;color:var(--gr);font-weight:700;margin-bottom:.5rem">Live on Vercel</div>
-    <div style="font-size:1rem;color:var(--w);margin-bottom:1rem;opacity:.85">Explore the full 6-tab risk intelligence dashboard — anomaly detection, SHAP importance, risk tiers, and spending patterns across 286 DoD categories.</div>
-    <a href="https://dod-audit-risk.vercel.app/" target="_blank" style="display:inline-flex;align-items:center;gap:.5rem;background:var(--gr);color:#000;font-weight:700;font-size:.95rem;padding:.75rem 1.5rem;border-radius:8px;text-decoration:none;letter-spacing:.03em">&#9679; Launch Dashboard →</a>
+  <div class="osec">
+    <div class="ostag" style="color:var(--gr)">Live Dashboard</div>
+    <div class="ostit">DoD Audit Risk Intelligence — Interactive on Vercel</div>
+    <div class="iframewin">
+      <div class="iframebar">
+        <div class="iframedots"><span></span><span></span><span></span></div>
+        <div class="iframeurl">dod-audit-risk.vercel.app</div>
+        <a href="https://dod-audit-risk.vercel.app/" target="_blank" class="iframefull">Open Full ↗</a>
+      </div>
+      <iframe src="https://dod-audit-risk.vercel.app/" title="DoD Audit Risk Dashboard" loading="lazy" sandbox="allow-scripts allow-same-origin allow-forms allow-popups"></iframe>
+      <div class="iframefooter">
+        <span>&#9679; Live — React 18 · TypeScript · Recharts · Vercel</span>
+        <a href="https://dod-audit-risk.vercel.app/" target="_blank">Open Full Screen →</a>
+      </div>
+    </div>
   </div>
 
   <div class="osec">
@@ -1252,8 +1281,9 @@ footer p{font-family:'DM Mono',monospace;font-size:10px;letter-spacing:.1em;colo
 
 <script>
 function openOv(id){
-  document.getElementById('mv').style.display='none';
   var ov=document.getElementById('ov-'+id);
+  if(!ov){console.error('overlay not found: ov-'+id);return;}
+  document.getElementById('mv').style.display='none';
   ov.classList.add('on');
   ov.scrollTop=0;
   window.scrollTo(0,0);
@@ -1530,10 +1560,21 @@ document.addEventListener('keydown',function(e){if(e.key==='Escape')closeOv()});
 </div>
 <div class="obody">
 
-  <div class="osec" style="background:rgba(37,99,235,0.07);border:1px solid rgba(37,99,235,0.3);border-radius:10px;padding:1.4rem 1.6rem;margin-bottom:1.6rem">
-    <div style="font-size:.75rem;letter-spacing:.12em;text-transform:uppercase;color:var(--b);font-weight:700;margin-bottom:.5rem">Live on Vercel</div>
-    <div style="font-size:1rem;color:var(--w);margin-bottom:1rem;opacity:.85">Bloomberg Terminal-inspired dashboard — real-time sentiment scores, signal strength, model predictions, and feature importance across all 20 tickers.</div>
-    <a href="https://crowd-pulse-ten.vercel.app/" target="_blank" style="display:inline-flex;align-items:center;gap:.5rem;background:var(--b);color:#fff;font-weight:700;font-size:.95rem;padding:.75rem 1.5rem;border-radius:8px;text-decoration:none;letter-spacing:.03em">&#9679; Launch Dashboard →</a>
+  <div class="osec">
+    <div class="ostag" style="color:var(--b)">Live Dashboard</div>
+    <div class="ostit">CrowdPulse Sentiment Terminal — Interactive on Vercel</div>
+    <div class="iframewin">
+      <div class="iframebar">
+        <div class="iframedots"><span></span><span></span><span></span></div>
+        <div class="iframeurl">crowd-pulse-ten.vercel.app</div>
+        <a href="https://crowd-pulse-ten.vercel.app/" target="_blank" class="iframefull">Open Full ↗</a>
+      </div>
+      <iframe src="https://crowd-pulse-ten.vercel.app/" title="CrowdPulse Sentiment Dashboard" loading="lazy" sandbox="allow-scripts allow-same-origin allow-forms allow-popups"></iframe>
+      <div class="iframefooter">
+        <span>&#9679; Live — Plotly Dash · Python · Vercel</span>
+        <a href="https://crowd-pulse-ten.vercel.app/" target="_blank">Open Full Screen →</a>
+      </div>
+    </div>
   </div>
 
   <div class="osec">
