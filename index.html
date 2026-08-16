@@ -236,6 +236,11 @@ footer p{font-family:'DM Mono',monospace;font-size:10px;letter-spacing:.1em;colo
 .insight{background:var(--m);border-left:4px solid var(--g);padding:20px 24px;margin:20px 0;font-size:14px;color:var(--w);line-height:1.7}
 .insight cite{display:block;margin-top:8px;font-family:'DM Mono',monospace;font-size:10px;letter-spacing:.1em;text-transform:uppercase;color:var(--mu);font-style:normal}
 
+/* about me */
+.about-hero{background:var(--m);border-left:4px solid var(--r);padding:32px 36px;margin:0 0 32px;font-size:17px;color:var(--w);line-height:1.8;max-width:900px}
+.about-body{display:none}
+.about-body.open{display:block}
+
 /* iframe preview */
 .iframewin{border-radius:10px;overflow:hidden;border:1px solid var(--bd);margin-bottom:1.6rem}
 .iframebar{background:#111;padding:.55rem 1rem;display:flex;align-items:center;gap:.8rem;border-bottom:1px solid var(--bd)}
@@ -309,6 +314,37 @@ footer p{font-family:'DM Mono',monospace;font-size:10px;letter-spacing:.1em;colo
     </div>
   </div>
 </header>
+
+<!-- ABOUT ME -->
+<section id="about">
+  <div class="sh"><div class="snum">00 / ABOUT</div><div class="stit">Why I'm Building This Way</div></div>
+  <div class="obody" style="padding-top:56px">
+    <p class="about-hero">I'm building toward AI engineering at the highest level, and I've chosen to do it from the ground up. Most companies' AI ambitions sit on data infrastructure that isn't ready for them, and I don't just believe that, I've watched it happen. So I'm spending this stage of my career building and hardening that foundation, in a way that also drives real business outcomes, not just cleaner pipelines, so that the AI I eventually build stands on ground that actually holds.</p>
+    <button id="aboutToggleBtn" class="btn bg" onclick="toggleAbout()">Read Full Story ↓</button>
+    <div id="aboutBody" class="about-body">
+      <div class="osec">
+        <div class="ostag">A spark from statistics</div>
+        <div class="otxt"><p>I didn't set out to be a coder. A probability and statistics course was the actual spark, the first time a subject made me want to go further just to see what else was hiding underneath it. Coding came later, as the tool that let me act on that curiosity rather than the reason for it. That ordering has shaped everything since: I reach for the model that solves a real problem, not the model that's interesting on its own.</p></div>
+      </div>
+      <div class="osec">
+        <div class="ostag">Two currencies, one mission</div>
+        <div class="otxt"><p>My first real project wasn't a fraud model or a lending algorithm, it was watching my aunt, a doctor, report COVID case numbers up the chain to public health officials during the pandemic. Healthcare came first, before anything else. Everything I built afterward, an anti-money-laundering system, a peer-to-peer lending risk model, a knowledge graph that eliminated hallucination in clinical diagnosis at a healthcare AI company, has really been the same mission wearing two different currencies. Financial access and access to care are both, underneath it, about the same thing: whether a person's life gets decided by their own choices or by circumstances outside their control.</p></div>
+      </div>
+      <div class="osec">
+        <div class="ostag">Hitting a wall no model could fix</div>
+        <div class="otxt"><p>By the time I got to business school, I'd already proven I could build the technically sound thing, an IEEE-published wildfire detection system, a Springer-published credit risk model. What I kept running into instead was a different failure mode: organizations that didn't trust a system enough to act on it, or didn't know how to. That gap wasn't a modeling problem, it was a business problem, and it's the exact reason I chose business analytics specifically, not general management, close enough to stay technically rigorous, wide enough to actually close that gap.</p></div>
+      </div>
+      <div class="osec">
+        <div class="ostag">Finding the math inside real problems</div>
+        <div class="otxt"><p>Somewhere in my first business modeling course, I ran into a warehouse allocation problem, an LP with a clean answer that also told me, for free, exactly what an expansion or a policy change would be worth without resolving anything. That was the moment optimization stopped being an exercise and became a lens. I kept finding the same shape hiding inside different businesses after that, a freight network, a power grid, a steel distributor's quietly unprofitable accounts, and it's why my capstone project ranked all 134 U.S. freight corridors by disruption risk and found that the most dangerous one to lose wasn't the one anyone expected.</p></div>
+      </div>
+      <div class="osec">
+        <div class="ostag">Building the ground I'll stand on</div>
+        <div class="otxt"><p>That same capstone project taught me the harder lesson. The model was right, but two data bugs nearly made it wrong in front of the people who'd act on it, a geocoding error that misplaced two-thirds of the country's freight regions, and a counting mistake that inflated the national freight total by over three times. Both were caught before they reached anyone who mattered, but the lesson stuck: a brilliant model on top of broken data is worse than no model at all, because it hands someone a wrong answer with total confidence. That's why my end goal, AI engineering at a company operating at the highest level, is something I'm choosing to build toward from the ground up rather than chase directly. Most companies' AI ambitions sit on data infrastructure that isn't ready for them. I'm spending this stage of my career building and hardening that foundation myself, so that whatever I build on top of it later actually holds.</p></div>
+      </div>
+    </div>
+  </div>
+</section>
 
 <!-- ════════ TECH MARQUEE ════════ -->
 <div class="mq" aria-label="Core stack">
@@ -2275,6 +2311,13 @@ const routeMap = {
   'docsagent': 'docsagent',
   'clinicaltrial': 'clinicaltrial'
 };
+
+function toggleAbout() {
+  var body = document.getElementById('aboutBody');
+  var btn = document.getElementById('aboutToggleBtn');
+  var isOpen = body.classList.toggle('open');
+  btn.textContent = isOpen ? 'Show Less ↑' : 'Read Full Story ↓';
+}
 
 function openOv(id) {
   var ov = document.getElementById('ov-' + id);
